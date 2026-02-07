@@ -1130,6 +1130,7 @@
                 <li><a href="#s3">Contingencies & Requirements</a></li>
                 <li><a href="#s4">Deliverable — Dependency Matrix</a></li>
                 <li><a href="#s5">Recommended Discovery Session Agenda</a></li>
+                <li><a href="#s6">Required Discovery Deliverables</a></li>
             </ol>
         </div>
 
@@ -1137,7 +1138,8 @@
         <div class="sec" id="s1">
             <span class="sn">Section 01</span>
             <h2>Discovery Questionnaire</h2>
-            <p class="si">Per the SOW, approximately two (2) hours of client support from Brandy Knight is allocated.
+            <p class="si">Per the SOW, approximately two to three (2–3) hours of client support from Brandy Knight is
+                allocated.
                 Please type your answers directly into each field below. Responses auto-save in your browser.</p>
 
             <div class="sub">
@@ -1468,7 +1470,7 @@
                     </tr>
                     <tr>
                         <td>AS7</td>
-                        <td><strong>~2 hours with Brandy</strong> is sufficient for all discovery</td>
+                        <td><strong>~2–3 hours with Brandy</strong> is sufficient for all discovery</td>
                         <td>If IT team needed for server questions, timeline may slip</td>
                     </tr>
                     <tr>
@@ -1512,7 +1514,8 @@
                 <div class="cc-card blk"><span class="cc-id">CR3</span>
                     <div class="cc-b">
                         <h4><span class="sev">⛔</span> Admin / Elevated Privileges</h4>
-                        <p>Cannot register a Windows Service or modify startup tasks without administrator rights on the
+                        <p>Cannot register a Windows Service or modify startup tasks without
+                            <strong>unrestricted</strong> administrator rights on the
                             target machine.</p>
                     </div>
                 </div>
@@ -1531,7 +1534,7 @@
                 <div class="cc-card wrn"><span class="cc-id">DR1</span>
                     <div class="cc-b">
                         <h4><span class="sev">⚠️</span> Client Availability for Testing</h4>
-                        <p>~30 min of Brandy's time for testing/validation. Without this, monitoring is self-validated
+                        <p>~2–5 hours of team time for testing/validation. Without this, monitoring is self-validated
                             only.</p>
                     </div>
                 </div>
@@ -1539,7 +1542,8 @@
                     <div class="cc-b">
                         <h4><span class="sev">⚠️</span> Controlled Failure Simulation</h4>
                         <p>Ability to safely stop FilePro for testing. Otherwise first real incident becomes first test.
-                        </p>
+                            Can be performed after hours and may require a team member to assist in ensuring the system
+                            is back online and functional.</p>
                     </div>
                 </div>
                 <div class="cc-card wrn"><span class="cc-id">DR3</span>
@@ -1617,7 +1621,8 @@
                     <tr>
                         <td>Auto-Restart</td>
                         <td>Launch command <span class="dr">A3</span> User account <span class="dr">A5</span> Admin
-                            <span class="dr">CR3</span>
+                            <span class="dr">CR3</span> — <strong>Quarantine offending file first</strong>, then
+                            restart. Up to <strong>3 retry attempts</strong> with monitoring between each.
                         </td>
                         <td>Alert-only mode — manual recovery</td>
                     </tr>
@@ -1645,7 +1650,7 @@
         <div class="sec" id="s5">
             <span class="sn">Section 05</span>
             <h2>Recommended Discovery Session Agenda</h2>
-            <p class="si">Structured to maximize the ~2 hours of allocated client support. Share this document in
+            <p class="si">Structured to maximize the ~2–3 hours of allocated client support. Share this document in
                 advance for preparation.</p>
             <table class="agt">
                 <thead>
@@ -1692,11 +1697,54 @@
                             recipient list</td>
                         <td class="at-q">AS1–9, CR4</td>
                     </tr>
+                    <tr>
+                        <td class="ts">2:00 – 2:30</td>
+                        <td><span class="at-topic">Deliverables Review</span><br>Collect credentials, schedule video
+                            walkthrough, confirm form submissions</td>
+                        <td class="at-q">Section 06</td>
+                    </tr>
                 </tbody>
             </table>
             <div class="callout callout-imp"><span class="callout-icon">💡</span><span
                     class="callout-text"><strong>Pre-Session:</strong> Share this document at least 48 hours before the
                     discovery session so answers can be prepared in advance.</span></div>
+        </div>
+
+        <!-- ═══ SECTION 6 ═══ -->
+        <div class="sec" id="s6">
+            <span class="sn">Section 06</span>
+            <h2>Required Discovery Deliverables</h2>
+            <p class="si">In addition to completing the questionnaire above, please provide the following materials to
+                ensure a smooth engagement.</p>
+
+            <div class="cc-card blk"><span class="cc-id">RD1</span>
+                <div class="cc-b">
+                    <h4><span class="sev">⛔</span> Completed Discovery Forms</h4>
+                    <p>All Section 1 questionnaire fields must be filled out and exported via the <strong>Export
+                            Responses</strong> button above, or answered during the live discovery session.</p>
+                </div>
+            </div>
+            <div class="cc-card blk"><span class="cc-id">RD2</span>
+                <div class="cc-b">
+                    <h4><span class="sev">⛔</span> Video Walkthrough with Screenshots</h4>
+                    <p>A screen recording (Loom, Teams recording, or similar) showing: FilePro launching, the batch
+                        process running, file folders involved, and what a failure looks like. Annotated screenshots of
+                        key screens are also acceptable.</p>
+                </div>
+            </div>
+            <div class="cc-card wrn"><span class="cc-id">RD3</span>
+                <div class="cc-b">
+                    <h4><span class="sev">⚠️</span> Remote Access Credentials</h4>
+                    <p>VPN credentials, RDP connection details, or any other access credentials required for deployment.
+                        These should be shared securely (not via email — use this document's secure link or a password
+                        manager share).</p>
+                </div>
+            </div>
+
+            <div class="callout callout-note"><span class="callout-icon">📋</span><span
+                    class="callout-text"><strong>Tip:</strong> Record a quick 5–10 minute Loom video walking through the
+                    FilePro process from start to finish. This single recording often answers 80% of our discovery
+                    questions and saves significant session time.</span></div>
         </div>
 
         <div class="doc-footer">
