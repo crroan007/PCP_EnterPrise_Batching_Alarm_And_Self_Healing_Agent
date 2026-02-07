@@ -953,10 +953,139 @@
                 text-align: center
             }
         }
+
+        /* Password Gate */
+        .gate {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 9999;
+            background: linear-gradient(135deg, var(--n9), var(--n7), var(--n6));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: opacity .5s, visibility .5s
+        }
+
+        .gate.hidden {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none
+        }
+
+        .gate-box {
+            background: rgba(255, 255, 255, .04);
+            border: 1px solid rgba(212, 168, 83, .2);
+            border-radius: 16px;
+            padding: 48px;
+            max-width: 420px;
+            width: 90%;
+            text-align: center;
+            backdrop-filter: blur(20px)
+        }
+
+        .gate-box .badge {
+            margin-bottom: 32px
+        }
+
+        .gate-box h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            font-weight: 800;
+            color: var(--w);
+            margin-bottom: 8px
+        }
+
+        .gate-box p {
+            font-size: 14px;
+            color: var(--s4);
+            margin-bottom: 32px;
+            font-weight: 300
+        }
+
+        .gate-input {
+            width: 100%;
+            padding: 14px 18px;
+            border: 1.5px solid rgba(255, 255, 255, .12);
+            border-radius: 10px;
+            background: rgba(255, 255, 255, .06);
+            color: var(--w);
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            margin-bottom: 14px;
+            transition: border-color .2s
+        }
+
+        .gate-input:focus {
+            outline: none;
+            border-color: var(--g5);
+            background: rgba(255, 255, 255, .08)
+        }
+
+        .gate-input::placeholder {
+            color: var(--s5)
+        }
+
+        .gate-btn {
+            width: 100%;
+            padding: 14px;
+            background: linear-gradient(135deg, var(--g5), var(--g4));
+            color: var(--n9);
+            border: none;
+            border-radius: 10px;
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            cursor: pointer;
+            transition: all .2s;
+            margin-top: 8px
+        }
+
+        .gate-btn:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 6px 20px rgba(212, 168, 83, .4)
+        }
+
+        .gate-error {
+            color: var(--r5);
+            font-size: 13px;
+            font-weight: 600;
+            margin-top: 16px;
+            min-height: 20px
+        }
     </style>
 </head>
 
 <body>
+    <!-- Password Gate -->
+    <div class="gate" id="gate">
+        <div class="gate-box">
+            <div class="badge">Authorized Access Only</div>
+            <h2>Secure Login</h2>
+            <p>This document is confidential. Please enter your credentials to continue.</p>
+            <input class="gate-input" id="gateUser" type="text" placeholder="Username" autocomplete="off"
+                onkeydown="if(event.key==='Enter')document.getElementById('gatePw').focus()">
+            <input class="gate-input" id="gatePw" type="password" placeholder="Password" autocomplete="off"
+                onkeydown="if(event.key==='Enter')tryLogin()">
+            <button class="gate-btn" onclick="tryLogin()">Access Document</button>
+            <div class="gate-error" id="gateErr"></div>
+        </div>
+    </div>
+    <script>
+        (function () {
+            const _u = atob('QnJhbmR5X2FkbQ=='), _p = atob('V2VsY29tZSMycGNw');
+            if (sessionStorage.getItem('fp_auth') === '1') { document.getElementById('gate').classList.add('hidden') }
+            window.tryLogin = function () {
+                const u = document.getElementById('gateUser').value, p = document.getElementById('gatePw').value;
+                if (u === _u && p === _p) { sessionStorage.setItem('fp_auth', '1'); document.getElementById('gate').classList.add('hidden') }
+                else { document.getElementById('gateErr').textContent = 'Invalid credentials. Please try again.'; document.getElementById('gatePw').value = '' }
+            };
+        })();
+    </script>
     <div class="cover">
         <div class="cc">
             <div class="badge">Confidential — Interactive Discovery Document</div>
@@ -1032,7 +1161,8 @@
                     <div class="q-top"><span class="q-id">A2</span>
                         <div>
                             <div class="q-text">Is FilePro running as a <strong>Windows Service</strong>, a
-                                <strong>Scheduled Task</strong>, or <strong>manually launched</strong>?</div>
+                                <strong>Scheduled Task</strong>, or <strong>manually launched</strong>?
+                            </div>
                             <div class="q-why">Determines restart strategy and boot persistence approach</div>
                         </div><span class="q-status" id="st-A2">⬜</span>
                     </div>
@@ -1043,7 +1173,8 @@
                     <div class="q-top"><span class="q-id">A3</span>
                         <div>
                             <div class="q-text">Is there a <strong>startup batch file</strong> (e.g.
-                                <code>fpplus.bat</code>) and where is it located?</div>
+                                <code>fpplus.bat</code>) and where is it located?
+                            </div>
                             <div class="q-why">Needed for automated restart — we must invoke the same launch sequence
                             </div>
                         </div><span class="q-status" id="st-A3">⬜</span>
@@ -1306,7 +1437,8 @@
                     <tr>
                         <td>AS1</td>
                         <td>FilePro runs as a <strong>visible Windows process</strong> detectable via
-                            <code>tasklist</code> or WMI</td>
+                            <code>tasklist</code> or WMI
+                        </td>
                         <td>If hosted inside a terminal emulator, detection strategy redesign needed</td>
                     </tr>
                     <tr>
@@ -1485,7 +1617,8 @@
                     <tr>
                         <td>Auto-Restart</td>
                         <td>Launch command <span class="dr">A3</span> User account <span class="dr">A5</span> Admin
-                            <span class="dr">CR3</span></td>
+                            <span class="dr">CR3</span>
+                        </td>
                         <td>Alert-only mode — manual recovery</td>
                     </tr>
                     <tr>
