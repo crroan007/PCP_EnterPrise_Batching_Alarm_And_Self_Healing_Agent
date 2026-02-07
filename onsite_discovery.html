@@ -1,0 +1,1860 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>On-Site Discovery Guide — Professional Civil Process</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@700;800;900&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --n9: #0a1628;
+            --n8: #0f2040;
+            --n7: #152d50;
+            --n6: #1a3a66;
+            --s7: #334155;
+            --s6: #475569;
+            --s5: #64748b;
+            --s4: #94a3b8;
+            --s3: #cbd5e1;
+            --s2: #e2e8f0;
+            --s1: #f1f5f9;
+            --s0: #f8fafc;
+            --g5: #d4a853;
+            --g4: #e6be6a;
+            --g3: #f0d48a;
+            --r5: #ef4444;
+            --r1: #fee2e2;
+            --r0: #fef2f2;
+            --o5: #f97316;
+            --o1: #ffedd5;
+            --gn5: #22c55e;
+            --gn1: #dcfce7;
+            --b5: #3b82f6;
+            --b1: #dbeafe;
+            --b0: #eff6ff;
+            --w: #fff
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box
+        }
+
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+            background: var(--s1);
+            color: var(--s7);
+            line-height: 1.7;
+            font-size: 15px;
+            -webkit-font-smoothing: antialiased
+        }
+
+        .cover {
+            min-height: 100vh;
+            background: linear-gradient(135deg, var(--n9), var(--n7), var(--n6));
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            padding: 60px 40px
+        }
+
+        .cover::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -30%;
+            width: 900px;
+            height: 900px;
+            background: radial-gradient(circle, rgba(212, 168, 83, .08), transparent 70%);
+            border-radius: 50%
+        }
+
+        .cc {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            max-width: 800px
+        }
+
+        .badge {
+            display: inline-block;
+            text-transform: uppercase;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 4px;
+            color: var(--g5);
+            border: 1.5px solid rgba(212, 168, 83, .3);
+            padding: 8px 24px;
+            border-radius: 100px;
+            margin-bottom: 48px
+        }
+
+        .cover h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 48px;
+            font-weight: 800;
+            color: var(--w);
+            line-height: 1.15;
+            margin-bottom: 20px
+        }
+
+        .cover h1 span {
+            display: block;
+            background: linear-gradient(135deg, var(--g4), var(--g3));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text
+        }
+
+        .cover-sub {
+            font-size: 17px;
+            color: var(--s4);
+            font-weight: 300;
+            line-height: 1.6;
+            margin-bottom: 56px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto
+        }
+
+        .cm {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1px;
+            background: rgba(255, 255, 255, .06);
+            border-radius: 12px;
+            overflow: hidden;
+            max-width: 720px;
+            margin: 0 auto
+        }
+
+        .cm-i {
+            padding: 24px 16px;
+            background: rgba(255, 255, 255, .03);
+            text-align: center
+        }
+
+        .cm-l {
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 2.5px;
+            color: var(--s5);
+            font-weight: 600;
+            margin-bottom: 8px
+        }
+
+        .cm-v {
+            font-size: 13px;
+            color: var(--s3);
+            font-weight: 500
+        }
+
+        .cf {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1;
+            text-align: center
+        }
+
+        .cf p {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--s5);
+            font-weight: 500
+        }
+
+        .wrap {
+            max-width: 920px;
+            margin: 0 auto;
+            padding: 80px 40px
+        }
+
+        .save-bar {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(15, 32, 64, .97);
+            backdrop-filter: blur(12px);
+            padding: 14px 24px;
+            border-radius: 12px;
+            margin-bottom: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            box-shadow: 0 4px 24px rgba(0, 0, 0, .3);
+            border: 1px solid rgba(212, 168, 83, .2)
+        }
+
+        .save-bar .status {
+            font-size: 13px;
+            color: var(--s4);
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 8px
+        }
+
+        .save-bar .status .dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--gn5);
+            display: inline-block;
+            animation: pulse 2s infinite
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                opacity: 1
+            }
+
+            50% {
+                opacity: .4
+            }
+        }
+
+        .save-bar .actions {
+            display: flex;
+            gap: 10px
+        }
+
+        .btn {
+            padding: 8px 20px;
+            border-radius: 8px;
+            font-size: 12px;
+            font-weight: 700;
+            border: none;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all .2s
+        }
+
+        .btn-gold {
+            background: linear-gradient(135deg, var(--g5), var(--g4));
+            color: var(--n9)
+        }
+
+        .btn-gold:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(212, 168, 83, .4)
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--s4);
+            border: 1px solid rgba(255, 255, 255, .15)
+        }
+
+        .btn-outline:hover {
+            border-color: var(--g5);
+            color: var(--g5)
+        }
+
+        .toc {
+            background: var(--w);
+            border-radius: 16px;
+            padding: 48px;
+            margin-bottom: 60px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, .04), 0 8px 24px rgba(0, 0, 0, .04);
+            border: 1px solid var(--s2)
+        }
+
+        .toc h2 {
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--s5);
+            font-weight: 700;
+            margin-bottom: 28px;
+            padding-bottom: 16px;
+            border-bottom: 2px solid var(--s1)
+        }
+
+        .tl {
+            list-style: none;
+            counter-reset: tc
+        }
+
+        .tl li {
+            counter-increment: tc;
+            padding: 12px 0;
+            border-bottom: 1px solid var(--s1);
+            display: flex;
+            align-items: center;
+            gap: 16px
+        }
+
+        .tl li:last-child {
+            border-bottom: none
+        }
+
+        .tl li::before {
+            content: "0" counter(tc);
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--g5);
+            min-width: 28px;
+            font-variant-numeric: tabular-nums
+        }
+
+        .tl li a {
+            font-size: 15px;
+            font-weight: 500;
+            color: var(--s7);
+            text-decoration: none
+        }
+
+        .tl li a:hover {
+            color: var(--n6)
+        }
+
+        .sec {
+            background: var(--w);
+            border-radius: 16px;
+            padding: 56px 48px;
+            margin-bottom: 40px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, .04), 0 8px 24px rgba(0, 0, 0, .04);
+            border: 1px solid var(--s2);
+            position: relative;
+            overflow: hidden
+        }
+
+        .sec::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--n8), var(--n6), var(--g5))
+        }
+
+        .sn {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--g5);
+            font-weight: 700;
+            margin-bottom: 8px;
+            display: block
+        }
+
+        .sec h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            font-weight: 800;
+            color: var(--n9);
+            margin-bottom: 8px
+        }
+
+        .si {
+            font-size: 14px;
+            color: var(--s5);
+            margin-bottom: 36px;
+            padding-bottom: 28px;
+            border-bottom: 1px solid var(--s2)
+        }
+
+        .sub {
+            margin-bottom: 40px
+        }
+
+        .sub:last-child {
+            margin-bottom: 0
+        }
+
+        .sh {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 20px
+        }
+
+        .si-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            flex-shrink: 0
+        }
+
+        .ic-p {
+            background: linear-gradient(135deg, #eef2ff, #e0e7ff);
+            color: #4f46e5
+        }
+
+        .ic-f {
+            background: linear-gradient(135deg, #ecfdf5, #d1fae5);
+            color: #059669
+        }
+
+        .ic-r {
+            background: linear-gradient(135deg, #fef2f2, #fee2e2);
+            color: #dc2626
+        }
+
+        .ic-o {
+            background: linear-gradient(135deg, #fff7ed, #ffedd5);
+            color: #ea580c
+        }
+
+        .ic-e {
+            background: linear-gradient(135deg, #eff6ff, #dbeafe);
+            color: #2563eb
+        }
+
+        .ic-v {
+            background: linear-gradient(135deg, #f5f3ff, #ede9fe);
+            color: #7c3aed
+        }
+
+        .sub h3 {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--n8)
+        }
+
+        .q-row {
+            border: 1px solid var(--s2);
+            border-radius: 10px;
+            margin-bottom: 12px;
+            overflow: hidden;
+            transition: border-color .2s
+        }
+
+        .q-row:hover {
+            border-color: var(--s3)
+        }
+
+        .q-row.answered {
+            border-color: rgba(34, 197, 94, .3)
+        }
+
+        .q-top {
+            display: grid;
+            grid-template-columns: 48px 1fr auto;
+            background: var(--s0);
+            padding: 16px 18px;
+            gap: 14px;
+            align-items: start
+        }
+
+        .q-id {
+            font-weight: 800;
+            color: var(--n7);
+            font-size: 12px;
+            background: var(--w);
+            border: 1px solid var(--s2);
+            padding: 4px 8px;
+            border-radius: 6px;
+            text-align: center;
+            font-variant-numeric: tabular-nums
+        }
+
+        .q-text {
+            font-weight: 500;
+            color: var(--n8);
+            font-size: 14px;
+            line-height: 1.6
+        }
+
+        .q-why {
+            font-size: 12px;
+            color: var(--s5);
+            margin-top: 4px
+        }
+
+        .q-status {
+            font-size: 18px
+        }
+
+        .q-input {
+            padding: 0 18px 16px;
+            background: var(--w)
+        }
+
+        .q-input textarea {
+            width: 100%;
+            min-height: 60px;
+            border: 1.5px solid var(--s2);
+            border-radius: 8px;
+            padding: 12px 14px;
+            font-family: 'Inter', sans-serif;
+            font-size: 13px;
+            color: var(--s7);
+            resize: vertical;
+            transition: border-color .2s;
+            background: var(--s0);
+            line-height: 1.6
+        }
+
+        .q-input textarea:focus {
+            outline: none;
+            border-color: var(--g5);
+            background: var(--w);
+            box-shadow: 0 0 0 3px rgba(212, 168, 83, .1)
+        }
+
+        .q-input textarea::placeholder {
+            color: var(--s4)
+        }
+
+        .at {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid var(--s2);
+            font-size: 13px
+        }
+
+        .at thead th {
+            background: var(--n9);
+            color: var(--s3);
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-weight: 700;
+            padding: 14px 16px;
+            text-align: left;
+            border-bottom: 2px solid var(--g5)
+        }
+
+        .at thead th:first-child {
+            width: 44px;
+            text-align: center
+        }
+
+        .at tbody tr:hover {
+            background: var(--s0)
+        }
+
+        .at tbody td {
+            padding: 14px 16px;
+            border-bottom: 1px solid var(--s1);
+            vertical-align: top;
+            line-height: 1.6
+        }
+
+        .at tbody tr:last-child td {
+            border-bottom: none
+        }
+
+        .at tbody td:first-child {
+            font-weight: 700;
+            color: var(--n7);
+            text-align: center;
+            font-size: 12px
+        }
+
+        .at tbody td:nth-child(2) {
+            font-weight: 500;
+            color: var(--n8)
+        }
+
+        .at tbody td:last-child {
+            color: var(--r5);
+            font-weight: 500;
+            font-size: 12.5px
+        }
+
+        .cg {
+            margin-bottom: 36px
+        }
+
+        .cg:last-child {
+            margin-bottom: 0
+        }
+
+        .cg-t {
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--n8);
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px
+        }
+
+        .pt {
+            font-size: 9px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            padding: 4px 10px;
+            border-radius: 100px;
+            font-weight: 700
+        }
+
+        .pt-pre {
+            background: var(--r1);
+            color: var(--r5)
+        }
+
+        .pt-dur {
+            background: var(--o1);
+            color: var(--o5)
+        }
+
+        .pt-post {
+            background: var(--b1);
+            color: var(--b5)
+        }
+
+        .cc-card {
+            background: var(--s0);
+            border-radius: 10px;
+            padding: 20px 24px;
+            margin-bottom: 12px;
+            border-left: 4px solid var(--s3);
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 16px;
+            align-items: start
+        }
+
+        .cc-card.blk {
+            border-left-color: var(--r5);
+            background: var(--r0)
+        }
+
+        .cc-card.wrn {
+            border-left-color: #f59e0b;
+            background: #fffbeb
+        }
+
+        .cc-card.inf {
+            border-left-color: var(--b5);
+            background: var(--b0)
+        }
+
+        .cc-id {
+            font-size: 11px;
+            font-weight: 800;
+            color: var(--n7);
+            background: var(--w);
+            border: 1px solid var(--s2);
+            padding: 4px 10px;
+            border-radius: 6px;
+            white-space: nowrap;
+            margin-top: 2px
+        }
+
+        .cc-b h4 {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--n8);
+            margin-bottom: 4px
+        }
+
+        .cc-b p {
+            font-size: 13px;
+            color: var(--s6);
+            line-height: 1.6
+        }
+
+        .sev {
+            display: inline-block;
+            font-size: 11px;
+            font-weight: 700;
+            margin-right: 4px
+        }
+
+        .agt {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid var(--s2);
+            font-size: 13px
+        }
+
+        .agt thead th {
+            background: var(--n9);
+            color: var(--s3);
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-weight: 700;
+            padding: 14px 18px;
+            text-align: left;
+            border-bottom: 2px solid var(--g5)
+        }
+
+        .agt tbody td {
+            padding: 18px;
+            border-bottom: 1px solid var(--s1);
+            vertical-align: top
+        }
+
+        .agt tbody tr:last-child td {
+            border-bottom: none
+        }
+
+        .agt tbody tr:hover {
+            background: var(--s0)
+        }
+
+        .ts {
+            font-weight: 700;
+            color: var(--n7);
+            font-variant-numeric: tabular-nums;
+            font-size: 13px;
+            white-space: nowrap
+        }
+
+        .at-topic {
+            font-weight: 600;
+            color: var(--n8)
+        }
+
+        .at-q {
+            color: var(--s5);
+            font-size: 12.5px;
+            font-weight: 500
+        }
+
+        .callout {
+            border-radius: 10px;
+            padding: 20px 24px;
+            margin: 32px 0;
+            display: flex;
+            gap: 14px;
+            align-items: flex-start
+        }
+
+        .callout-imp {
+            background: linear-gradient(135deg, #fef3c7, #fef9c3);
+            border: 1px solid #fde68a
+        }
+
+        .callout-note {
+            background: var(--s0);
+            border: 1px solid var(--s2)
+        }
+
+        .callout-icon {
+            font-size: 20px;
+            flex-shrink: 0;
+            margin-top: 1px
+        }
+
+        .callout-text {
+            font-size: 13px;
+            color: var(--s7);
+            font-weight: 500;
+            line-height: 1.65
+        }
+
+        .callout-text strong {
+            color: var(--n8)
+        }
+
+        .doc-footer {
+            text-align: center;
+            padding: 40px 0 80px;
+            font-size: 12px;
+            color: var(--s4)
+        }
+
+        .doc-footer .div {
+            width: 60px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--s3), transparent);
+            margin: 0 auto 20px
+        }
+
+        .doc-footer p {
+            margin-bottom: 4px
+        }
+
+        .toast {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: var(--n9);
+            color: var(--w);
+            padding: 14px 24px;
+            border-radius: 10px;
+            font-size: 13px;
+            font-weight: 600;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, .3);
+            transform: translateY(100px);
+            opacity: 0;
+            transition: all .3s;
+            z-index: 200;
+            border: 1px solid rgba(212, 168, 83, .2)
+        }
+
+        .toast.show {
+            transform: translateY(0);
+            opacity: 1
+        }
+
+        /* Day cards */
+        .day-card {
+            background: var(--s0);
+            border-radius: 12px;
+            padding: 28px;
+            margin-bottom: 16px;
+            border: 1px solid var(--s2);
+            position: relative;
+            overflow: hidden
+        }
+
+        .day-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            width: 4px
+        }
+
+        .day-card.d1::before {
+            background: #4f46e5
+        }
+
+        .day-card.d2::before {
+            background: #059669
+        }
+
+        .day-card.d3::before {
+            background: #d97706
+        }
+
+        .day-card.d4::before {
+            background: #dc2626
+        }
+
+        .day-card.d5::before {
+            background: #7c3aed
+        }
+
+        .day-label {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 700;
+            margin-bottom: 4px
+        }
+
+        .d1 .day-label {
+            color: #4f46e5
+        }
+
+        .d2 .day-label {
+            color: #059669
+        }
+
+        .d3 .day-label {
+            color: #d97706
+        }
+
+        .d4 .day-label {
+            color: #dc2626
+        }
+
+        .d5 .day-label {
+            color: #7c3aed
+        }
+
+        .day-card h4 {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--n8);
+            margin-bottom: 8px
+        }
+
+        .day-card p {
+            font-size: 13px;
+            color: var(--s6);
+            line-height: 1.6
+        }
+
+        .day-card ul {
+            list-style: none;
+            margin-top: 12px
+        }
+
+        .day-card li {
+            font-size: 13px;
+            color: var(--s6);
+            padding: 4px 0;
+            padding-left: 20px;
+            position: relative
+        }
+
+        .day-card li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--g5);
+            font-weight: 700
+        }
+
+        /* Password Gate */
+        .gate {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 9999;
+            background: linear-gradient(135deg, var(--n9), var(--n7), var(--n6));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: opacity .5s, visibility .5s
+        }
+
+        .gate.hidden {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none
+        }
+
+        .gate-box {
+            background: rgba(255, 255, 255, .04);
+            border: 1px solid rgba(212, 168, 83, .2);
+            border-radius: 16px;
+            padding: 48px;
+            max-width: 420px;
+            width: 90%;
+            text-align: center;
+            backdrop-filter: blur(20px)
+        }
+
+        .gate-box .badge {
+            margin-bottom: 32px
+        }
+
+        .gate-box h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            font-weight: 800;
+            color: var(--w);
+            margin-bottom: 8px
+        }
+
+        .gate-box p {
+            font-size: 14px;
+            color: var(--s4);
+            margin-bottom: 32px;
+            font-weight: 300
+        }
+
+        .gate-input {
+            width: 100%;
+            padding: 14px 18px;
+            border: 1.5px solid rgba(255, 255, 255, .12);
+            border-radius: 10px;
+            background: rgba(255, 255, 255, .06);
+            color: var(--w);
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            margin-bottom: 14px;
+            transition: border-color .2s
+        }
+
+        .gate-input:focus {
+            outline: none;
+            border-color: var(--g5);
+            background: rgba(255, 255, 255, .08)
+        }
+
+        .gate-input::placeholder {
+            color: var(--s5)
+        }
+
+        .gate-btn {
+            width: 100%;
+            padding: 14px;
+            background: linear-gradient(135deg, var(--g5), var(--g4));
+            color: var(--n9);
+            border: none;
+            border-radius: 10px;
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            cursor: pointer;
+            transition: all .2s;
+            margin-top: 8px
+        }
+
+        .gate-btn:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 6px 20px rgba(212, 168, 83, .4)
+        }
+
+        .gate-error {
+            color: var(--r5);
+            font-size: 13px;
+            font-weight: 600;
+            margin-top: 16px;
+            min-height: 20px
+        }
+
+        @media print {
+            body {
+                background: #fff;
+                font-size: 12px
+            }
+
+            .cover {
+                min-height: auto;
+                padding: 80px 40px;
+                page-break-after: always
+            }
+
+            .sec {
+                box-shadow: none;
+                border: 1px solid #ddd;
+                break-inside: avoid;
+                padding: 36px;
+                margin-bottom: 24px
+            }
+
+            .save-bar,
+            .q-input,
+            .btn,
+            .gate {
+                display: none !important
+            }
+
+            .wrap {
+                padding: 20px 0;
+                max-width: 100%
+            }
+
+            .toc {
+                box-shadow: none;
+                page-break-after: always
+            }
+        }
+
+        @media(max-width:768px) {
+            .cover h1 {
+                font-size: 32px
+            }
+
+            .cm {
+                grid-template-columns: repeat(2, 1fr)
+            }
+
+            .sec {
+                padding: 32px 24px
+            }
+
+            .wrap {
+                padding: 40px 16px
+            }
+
+            .save-bar {
+                flex-direction: column;
+                text-align: center
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Password Gate -->
+    <div class="gate" id="gate">
+        <div class="gate-box">
+            <div class="badge">Authorized Access Only</div>
+            <h2>Secure Login</h2>
+            <p>This document is confidential. Please enter your credentials to continue.</p>
+            <input class="gate-input" id="gateUser" type="text" placeholder="Username" autocomplete="off"
+                onkeydown="if(event.key==='Enter')document.getElementById('gatePw').focus()">
+            <input class="gate-input" id="gatePw" type="password" placeholder="Password" autocomplete="off"
+                onkeydown="if(event.key==='Enter')tryLogin()">
+            <button class="gate-btn" onclick="tryLogin()">Access Document</button>
+            <div class="gate-error" id="gateErr"></div>
+        </div>
+    </div>
+    <script>
+        (function () {
+            const _u = atob('QnJhbmR5X2FkbQ=='), _p = atob('V2VsY29tZSMycGNw');
+            if (sessionStorage.getItem('fp_auth') === '1') { document.getElementById('gate').classList.add('hidden') }
+            window.tryLogin = function () {
+                const u = document.getElementById('gateUser').value, p = document.getElementById('gatePw').value;
+                if (u === _u && p === _p) { sessionStorage.setItem('fp_auth', '1'); document.getElementById('gate').classList.add('hidden') }
+                else { document.getElementById('gateErr').textContent = 'Invalid credentials. Please try again.'; document.getElementById('gatePw').value = '' }
+            };
+        })();
+    </script>
+
+    <div class="cover">
+        <div class="cc">
+            <div class="badge">Confidential — Interactive Pre-Visit Document</div>
+            <h1>On-Site Discovery &<br>Business Value Scoping<br><span>Pre-Visit Preparation Guide</span></h1>
+            <p class="cover-sub">Complete this interactive guide before the on-site engagement to maximize the value of
+                our time together. Answers auto-save and can be exported at any time.</p>
+            <div class="cm">
+                <div class="cm-i">
+                    <div class="cm-l">Client</div>
+                    <div class="cm-v">Professional Civil Process</div>
+                </div>
+                <div class="cm-i">
+                    <div class="cm-l">Consultant</div>
+                    <div class="cm-v">Chris</div>
+                </div>
+                <div class="cm-i">
+                    <div class="cm-l">Duration</div>
+                    <div class="cm-v">Mon – Fri (Full Week)</div>
+                </div>
+                <div class="cm-i">
+                    <div class="cm-l">Prepared By</div>
+                    <div class="cm-v">Evan Hopkins</div>
+                </div>
+            </div>
+        </div>
+        <div class="cf">
+            <p>SOW Reference: On-Site Discovery & Business Value Scoping Engagement</p>
+        </div>
+    </div>
+
+    <div class="wrap">
+        <div class="save-bar">
+            <div class="status"><span class="dot"></span> <span id="saveStatus">All answers auto-save in this
+                    browser</span></div>
+            <div class="actions">
+                <button class="btn btn-outline" onclick="clearAll()">Reset All</button>
+                <button class="btn btn-gold" onclick="exportAnswers()">⬇ Export Responses</button>
+            </div>
+        </div>
+
+        <div class="toc">
+            <h2>Table of Contents</h2>
+            <ol class="tl">
+                <li><a href="#s1">Pre-Visit Questionnaire</a></li>
+                <li><a href="#s2">Working Assumptions</a></li>
+                <li><a href="#s3">Contingencies & Requirements</a></li>
+                <li><a href="#s4">On-Site Week Agenda</a></li>
+                <li><a href="#s5">Deliverable Tracking</a></li>
+                <li><a href="#s6">Required Pre-Visit Deliverables</a></li>
+            </ol>
+        </div>
+
+        <!-- ═══ SECTION 1 ═══ -->
+        <div class="sec" id="s1">
+            <span class="sn">Section 01</span>
+            <h2>Pre-Visit Questionnaire</h2>
+            <p class="si">Please complete as many of these questions as possible before Chris arrives on-site. Thorough
+                answers here means we spend less time asking questions and more time observing and solving.</p>
+
+            <div class="sub">
+                <div class="sh">
+                    <div class="si-icon ic-p">🏢</div>
+                    <h3>A. Organizational Overview</h3>
+                </div>
+                <div class="q-row" id="row-A1">
+                    <div class="q-top"><span class="q-id">A1</span>
+                        <div>
+                            <div class="q-text">How many <strong>total employees</strong> does PCP have, and how are
+                                they organized? (Departments, teams, locations?)</div>
+                            <div class="q-why">Establishes scope of operations and identifies observation targets</div>
+                        </div><span class="q-status" id="st-A1">⬜</span>
+                    </div>
+                    <div class="q-input"><textarea id="A1"
+                            placeholder="e.g. About 45 people total — office staff, field servers, management..."
+                            oninput="save(this)"></textarea></div>
+                </div>
+                <div class="q-row" id="row-A2">
+                    <div class="q-top"><span class="q-id">A2</span>
+                        <div>
+                            <div class="q-text">Who are the <strong>key stakeholders</strong> Chris should meet with
+                                beyond Brandy? (Names, roles, availability)</div>
+                            <div class="q-why">Pre-scheduling meetings maximizes the on-site week</div>
+                        </div><span class="q-status" id="st-A2">⬜</span>
+                    </div>
+                    <div class="q-input"><textarea id="A2"
+                            placeholder="e.g. John Smith (Operations Manager), Lisa Chen (IT)..."
+                            oninput="save(this)"></textarea></div>
+                </div>
+                <div class="q-row" id="row-A3">
+                    <div class="q-top"><span class="q-id">A3</span>
+                        <div>
+                            <div class="q-text">What is PCP's <strong>core business</strong> in your own words? What
+                                makes you different from competitors?</div>
+                            <div class="q-why">Ensures we frame all initiatives around PCP's unique value proposition
+                            </div>
+                        </div><span class="q-status" id="st-A3">⬜</span>
+                    </div>
+                    <div class="q-input"><textarea id="A3"
+                            placeholder="e.g. We serve legal documents for law firms across..."
+                            oninput="save(this)"></textarea></div>
+                </div>
+                <div class="q-row" id="row-A4">
+                    <div class="q-top"><span class="q-id">A4</span>
+                        <div>
+                            <div class="q-text">What is PCP's <strong>annual revenue range</strong> and primary revenue
+                                drivers?</div>
+                            <div class="q-why">Helps prioritize initiatives by business impact potential</div>
+                        </div><span class="q-status" id="st-A4">⬜</span>
+                    </div>
+                    <div class="q-input"><textarea id="A4" placeholder="e.g. Between $X-$Y, mostly from..."
+                            oninput="save(this)"></textarea></div>
+                </div>
+            </div>
+
+            <div class="sub">
+                <div class="sh">
+                    <div class="si-icon ic-e">💻</div>
+                    <h3>B. Current Systems & Tools</h3>
+                </div>
+                <div class="q-row" id="row-B1">
+                    <div class="q-top"><span class="q-id">B1</span>
+                        <div>
+                            <div class="q-text">List <strong>all software systems</strong> PCP currently uses. (FilePro,
+                                Outlook, QuickBooks, CRM, custom apps, etc.)</div>
+                            <div class="q-why">Creates the technology landscape map for integration opportunities</div>
+                        </div><span class="q-status" id="st-B1">⬜</span>
+                    </div>
+                    <div class="q-input"><textarea id="B1"
+                            placeholder="e.g. FilePro for batch processing, Outlook for email, QuickBooks for billing..."
+                            oninput="save(this)"></textarea></div>
+                </div>
+                <div class="q-row" id="row-B2">
+                    <div class="q-top"><span class="q-id">B2</span>
+                        <div>
+                            <div class="q-text">Are there any systems you <strong>wish you could replace</strong> or
+                                that cause frequent frustration?</div>
+                            <div class="q-why">Identifies low-hanging fruit for quick wins</div>
+                        </div><span class="q-status" id="st-B2">⬜</span>
+                    </div>
+                    <div class="q-input"><textarea id="B2"
+                            placeholder="e.g. FilePro is old and unreliable, we wish we had a better..."
+                            oninput="save(this)"></textarea></div>
+                </div>
+                <div class="q-row" id="row-B3">
+                    <div class="q-top"><span class="q-id">B3</span>
+                        <div>
+                            <div class="q-text">How does <strong>data flow between systems</strong>? Manual re-entry?
+                                Imports/exports? Integrations?</div>
+                            <div class="q-why">Reveals automation and efficiency opportunities</div>
+                        </div><span class="q-status" id="st-B3">⬜</span>
+                    </div>
+                    <div class="q-input"><textarea id="B3"
+                            placeholder="e.g. We export from FilePro into Excel, then re-type into..."
+                            oninput="save(this)"></textarea></div>
+                </div>
+                <div class="q-row" id="row-B4">
+                    <div class="q-top"><span class="q-id">B4</span>
+                        <div>
+                            <div class="q-text">Who manages your <strong>IT infrastructure</strong>? (Internal team?
+                                MSP? Brandy?)</div>
+                            <div class="q-why">Determines who to coordinate with for technical changes</div>
+                        </div><span class="q-status" id="st-B4">⬜</span>
+                    </div>
+                    <div class="q-input"><textarea id="B4"
+                            placeholder="e.g. Brandy handles most of it, we also use an outside IT company for..."
+                            oninput="save(this)"></textarea></div>
+                </div>
+            </div>
+
+            <div class="sub">
+                <div class="sh">
+                    <div class="si-icon ic-f">🔄</div>
+                    <h3>C. Operational Workflows</h3>
+                </div>
+                <div class="q-row" id="row-C1">
+                    <div class="q-top"><span class="q-id">C1</span>
+                        <div>
+                            <div class="q-text">Walk us through the <strong>lifecycle of a typical job</strong> — from
+                                receiving a document to completing service.</div>
+                            <div class="q-why">The core process Chris will observe and map on-site</div>
+                        </div><span class="q-status" id="st-C1">⬜</span>
+                    </div>
+                    <div class="q-input"><textarea id="C1"
+                            placeholder="e.g. We receive documents from law firms via email, then..."
+                            oninput="save(this)"></textarea></div>
+                </div>
+                <div class="q-row" id="row-C2">
+                    <div class="q-top"><span class="q-id">C2</span>
+                        <div>
+                            <div class="q-text">What are the <strong>most time-consuming manual tasks</strong> your team
+                                performs daily?</div>
+                            <div class="q-why">Direct targets for automation initiatives</div>
+                        </div><span class="q-status" id="st-C2">⬜</span>
+                    </div>
+                    <div class="q-input"><textarea id="C2"
+                            placeholder="e.g. Data entry takes about 3 hours per day, sorting emails takes..."
+                            oninput="save(this)"></textarea></div>
+                </div>
+                <div class="q-row" id="row-C3">
+                    <div class="q-top"><span class="q-id">C3</span>
+                        <div>
+                            <div class="q-text">Where do <strong>bottlenecks or delays</strong> typically occur in your
+                                operations?</div>
+                            <div class="q-why">Priority targets for process improvement</div>
+                        </div><span class="q-status" id="st-C3">⬜</span>
+                    </div>
+                    <div class="q-input"><textarea id="C3"
+                            placeholder="e.g. We often wait on court filings to come back, and volume spikes on Mondays..."
+                            oninput="save(this)"></textarea></div>
+                </div>
+                <div class="q-row" id="row-C4">
+                    <div class="q-top"><span class="q-id">C4</span>
+                        <div>
+                            <div class="q-text">What <strong>reporting or tracking</strong> does PCP currently do?
+                                (Spreadsheets, dashboards, manual tallies?)</div>
+                            <div class="q-why">Identifies data visibility gaps and dashboard opportunities</div>
+                        </div><span class="q-status" id="st-C4">⬜</span>
+                    </div>
+                    <div class="q-input"><textarea id="C4"
+                            placeholder="e.g. Brandy keeps a spreadsheet with monthly stats, but we don't have..."
+                            oninput="save(this)"></textarea></div>
+                </div>
+            </div>
+
+            <div class="sub">
+                <div class="sh">
+                    <div class="si-icon ic-r">🎯</div>
+                    <h3>D. Known Pain Points & Priorities</h3>
+                </div>
+                <div class="q-row" id="row-D1">
+                    <div class="q-top"><span class="q-id">D1</span>
+                        <div>
+                            <div class="q-text">If you could fix <strong>one operational problem</strong> tomorrow, what
+                                would it be and why?</div>
+                            <div class="q-why">Reveals the highest-impact initiative from the client's perspective</div>
+                        </div><span class="q-status" id="st-D1">⬜</span>
+                    </div>
+                    <div class="q-input"><textarea id="D1"
+                            placeholder="e.g. I wish we could stop losing documents between teams..."
+                            oninput="save(this)"></textarea></div>
+                </div>
+                <div class="q-row" id="row-D2">
+                    <div class="q-top"><span class="q-id">D2</span>
+                        <div>
+                            <div class="q-text">What <strong>business goals</strong> does PCP have for the next 6–12
+                                months? (Growth, efficiency, compliance?)</div>
+                            <div class="q-why">Aligns initiative recommendations with strategic direction</div>
+                        </div><span class="q-status" id="st-D2">⬜</span>
+                    </div>
+                    <div class="q-input"><textarea id="D2"
+                            placeholder="e.g. We want to handle 30% more volume without hiring, and also improve..."
+                            oninput="save(this)"></textarea></div>
+                </div>
+                <div class="q-row" id="row-D3">
+                    <div class="q-top"><span class="q-id">D3</span>
+                        <div>
+                            <div class="q-text">Are there any <strong>compliance or regulatory</strong> requirements
+                                that drive how you operate?</div>
+                            <div class="q-why">Ensures initiatives don't violate legal/regulatory constraints</div>
+                        </div><span class="q-status" id="st-D3">⬜</span>
+                    </div>
+                    <div class="q-input"><textarea id="D3"
+                            placeholder="e.g. We follow state process serving requirements, court filing deadlines..."
+                            oninput="save(this)"></textarea></div>
+                </div>
+                <div class="q-row" id="row-D4">
+                    <div class="q-top"><span class="q-id">D4</span>
+                        <div>
+                            <div class="q-text">Have there been any <strong>past technology or process
+                                    improvement</strong> attempts? What worked and what didn't?</div>
+                            <div class="q-why">Avoids repeating past failures and builds on what worked</div>
+                        </div><span class="q-status" id="st-D4">⬜</span>
+                    </div>
+                    <div class="q-input"><textarea id="D4"
+                            placeholder="e.g. We tried a new CRM last year but it didn't stick because..."
+                            oninput="save(this)"></textarea></div>
+                </div>
+            </div>
+
+            <div class="sub">
+                <div class="sh">
+                    <div class="si-icon ic-v">📍</div>
+                    <h3>E. Access & Logistics</h3>
+                </div>
+                <div class="q-row" id="row-E1">
+                    <div class="q-top"><span class="q-id">E1</span>
+                        <div>
+                            <div class="q-text">What is the <strong>office address</strong> and best entrance/parking
+                                for Chris?</div>
+                            <div class="q-why">Logistics for Day 1 arrival</div>
+                        </div><span class="q-status" id="st-E1">⬜</span>
+                    </div>
+                    <div class="q-input"><textarea id="E1"
+                            placeholder="e.g. 123 Main Street, Suite 200. Park in the north lot, enter through..."
+                            oninput="save(this)"></textarea></div>
+                </div>
+                <div class="q-row" id="row-E2">
+                    <div class="q-top"><span class="q-id">E2</span>
+                        <div>
+                            <div class="q-text">What are the <strong>office hours</strong>? When do people typically
+                                arrive and leave?</div>
+                            <div class="q-why">Sets the daily schedule for on-site sessions</div>
+                        </div><span class="q-status" id="st-E2">⬜</span>
+                    </div>
+                    <div class="q-input"><textarea id="E2"
+                            placeholder="e.g. Most people are here 8am–5pm, Brandy usually arrives around 7:30..."
+                            oninput="save(this)"></textarea></div>
+                </div>
+                <div class="q-row" id="row-E3">
+                    <div class="q-top"><span class="q-id">E3</span>
+                        <div>
+                            <div class="q-text">Will Chris have a <strong>dedicated workspace</strong> with Wi-Fi access
+                                and power?</div>
+                            <div class="q-why">Needed for sessions, note-taking, and real-time documentation</div>
+                        </div><span class="q-status" id="st-E3">⬜</span>
+                    </div>
+                    <div class="q-input"><textarea id="E3"
+                            placeholder="e.g. Yes, we have an empty office he can use, Wi-Fi password is..."
+                            oninput="save(this)"></textarea></div>
+                </div>
+                <div class="q-row" id="row-E4">
+                    <div class="q-top"><span class="q-id">E4</span>
+                        <div>
+                            <div class="q-text">Any <strong>security or access restrictions</strong> Chris should know
+                                about? (Badge, NDA, restricted areas?)</div>
+                            <div class="q-why">Prevents Day 1 access delays</div>
+                        </div><span class="q-status" id="st-E4">⬜</span>
+                    </div>
+                    <div class="q-input"><textarea id="E4"
+                            placeholder="e.g. He'll need a visitor badge from the front desk..."
+                            oninput="save(this)"></textarea></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ═══ SECTION 2 ═══ -->
+        <div class="sec" id="s2">
+            <span class="sn">Section 02</span>
+            <h2>Working Assumptions</h2>
+            <p class="si">These assumptions guide our preparation. Each will be validated during the on-site engagement.
+                If wrong, the impact is noted.</p>
+            <table class="at">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Assumption</th>
+                        <th>Impact if Wrong</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>AS1</td>
+                        <td>Brandy Knight is the <strong>primary point of contact</strong> and decision-maker for
+                            technology initiatives</td>
+                        <td>Need to identify and schedule additional approvers</td>
+                    </tr>
+                    <tr>
+                        <td>AS2</td>
+                        <td>PCP's operations are <strong>primarily paper-and-manual</strong> with limited existing
+                            automation</td>
+                        <td>If heavily automated, focus shifts from automation to optimization</td>
+                    </tr>
+                    <tr>
+                        <td>AS3</td>
+                        <td>Existing systems (FilePro, PCP Nexus) represent the <strong>core technology stack</strong>
+                        </td>
+                        <td>If additional systems exist, landscape mapping needs expansion</td>
+                    </tr>
+                    <tr>
+                        <td>AS4</td>
+                        <td><strong>2–4 high-impact initiatives</strong> can be identified within one on-site week</td>
+                        <td>If operations are more complex than expected, may need prioritization framework</td>
+                    </tr>
+                    <tr>
+                        <td>AS5</td>
+                        <td>Key stakeholders will be <strong>available during the on-site week</strong> for working
+                            sessions</td>
+                        <td>If unavailable, initiative scoping may lack critical perspectives</td>
+                    </tr>
+                    <tr>
+                        <td>AS6</td>
+                        <td>PCP has <strong>budget appetite</strong> for executing 2–4 initiatives after scoping</td>
+                        <td>If budget-constrained, need to rank by ROI and sequence accordingly</td>
+                    </tr>
+                    <tr>
+                        <td>AS7</td>
+                        <td>Chris will have <strong>unrestricted access to observe operations</strong> in all
+                            departments</td>
+                        <td>If areas are restricted, discovery will have blind spots</td>
+                    </tr>
+                    <tr>
+                        <td>AS8</td>
+                        <td>PCP is open to <strong>process changes</strong>, not just technology additions</td>
+                        <td>If process changes are off-limits, initiative scope narrows significantly</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- ═══ SECTION 3 ═══ -->
+        <div class="sec" id="s3">
+            <span class="sn">Section 03</span>
+            <h2>Contingencies & Requirements</h2>
+            <p class="si">Items marked ⛔ are hard blockers for the engagement. Items marked ⚠️ degrade value or delay
+                specific outcomes.</p>
+
+            <div class="cg">
+                <div class="cg-t"><span class="pt pt-pre">Pre-Visit</span> Must be resolved before Chris arrives on-site
+                </div>
+                <div class="cc-card blk"><span class="cc-id">PV1</span>
+                    <div class="cc-b">
+                        <h4><span class="sev">⛔</span> Travel Arrangements Confirmed</h4>
+                        <p>Airfare, hotel, and rental car must be booked and approved by Brandy Knight. SOW requires
+                            advance approval for all travel expenses.</p>
+                    </div>
+                </div>
+                <div class="cc-card blk"><span class="cc-id">PV2</span>
+                    <div class="cc-b">
+                        <h4><span class="sev">⛔</span> SOW Signed & Payment Received</h4>
+                        <p>Both signature and payment of $6,000 project fee required within 24 hours of authorization.
+                            Work begins upon receipt.</p>
+                    </div>
+                </div>
+                <div class="cc-card blk"><span class="cc-id">PV3</span>
+                    <div class="cc-b">
+                        <h4><span class="sev">⛔</span> Pre-Visit Questionnaire Completed</h4>
+                        <p>Section 1 answers must be submitted before arrival. This allows Chris to arrive prepared
+                            rather than spending Day 1 on basic orientation.</p>
+                    </div>
+                </div>
+                <div class="cc-card wrn"><span class="cc-id">PV4</span>
+                    <div class="cc-b">
+                        <h4><span class="sev">⚠️</span> Stakeholder Calendar Holds</h4>
+                        <p>Key team members identified in A2 should have calendar blocks held for working sessions
+                            during the on-site week.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cg">
+                <div class="cg-t"><span class="pt pt-dur">During Visit</span> Should be available during the on-site
+                    week</div>
+                <div class="cc-card wrn"><span class="cc-id">DV1</span>
+                    <div class="cc-b">
+                        <h4><span class="sev">⚠️</span> Brandy Knight Availability</h4>
+                        <p>Brandy should be available for daily coordination and priority-setting. Minimum 2–3 hours per
+                            day for working sessions.</p>
+                    </div>
+                </div>
+                <div class="cc-card wrn"><span class="cc-id">DV2</span>
+                    <div class="cc-b">
+                        <h4><span class="sev">⚠️</span> System Access for Observation</h4>
+                        <p>Chris should be able to observe (view-only) key systems in action. Screen-sharing or
+                            side-by-side access is ideal.</p>
+                    </div>
+                </div>
+                <div class="cc-card wrn"><span class="cc-id">DV3</span>
+                    <div class="cc-b">
+                        <h4><span class="sev">⚠️</span> Minimal Operational Disruption</h4>
+                        <p>Normal operations should continue during the visit. Observation of real workflows is more
+                            valuable than staged demos.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cg">
+                <div class="cg-t"><span class="pt pt-post">Post-Visit</span> Following the on-site engagement</div>
+                <div class="cc-card inf"><span class="cc-id">PT1</span>
+                    <div class="cc-b">
+                        <h4>Follow-Up Summary Delivery</h4>
+                        <p>Written summary with 2–4 prioritized initiatives, objectives, outcomes, dependencies, and
+                            recommended sequencing — delivered by end of the following week.</p>
+                    </div>
+                </div>
+                <div class="cc-card inf"><span class="cc-id">PT2</span>
+                    <div class="cc-b">
+                        <h4>Execution SOWs</h4>
+                        <p>Each prioritized initiative will receive a separate SOW for execution with its own timeline,
+                            deliverables, and pricing.</p>
+                    </div>
+                </div>
+                <div class="cc-card inf"><span class="cc-id">PT3</span>
+                    <div class="cc-b">
+                        <h4>Travel Expense Invoice</h4>
+                        <p>All travel-related expenses will be invoiced separately to PCP after the engagement, per SOW
+                            §5.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ═══ SECTION 4 ═══ -->
+        <div class="sec" id="s4">
+            <span class="sn">Section 04</span>
+            <h2>On-Site Week Agenda</h2>
+            <p class="si">Proposed day-by-day plan for the Mon–Fri engagement. This will be refined with Brandy based on
+                pre-visit questionnaire answers and stakeholder availability.</p>
+
+            <div class="day-card d1">
+                <div class="day-label">Monday</div>
+                <h4>Orientation & Landscape Mapping</h4>
+                <p>Get the lay of the land — meet the team, understand the physical and digital environment.</p>
+                <ul>
+                    <li>Office tour and team introductions</li>
+                    <li>Kickoff meeting with Brandy — confirm priorities and schedule</li>
+                    <li>Technology landscape walkthrough (all systems, logins, data flows)</li>
+                    <li>Observe afternoon operations in real-time</li>
+                </ul>
+            </div>
+            <div class="day-card d2">
+                <div class="day-label">Tuesday</div>
+                <h4>Deep-Dive: Core Operations</h4>
+                <p>Shadow key team members through their daily workflows — observe, document, identify friction.</p>
+                <ul>
+                    <li>Side-by-side sessions with 2–3 team members</li>
+                    <li>Document the full job lifecycle end-to-end</li>
+                    <li>Identify manual steps that could be automated</li>
+                    <li>Evening debrief with Brandy — initial findings</li>
+                </ul>
+            </div>
+            <div class="day-card d3">
+                <div class="day-label">Wednesday</div>
+                <h4>Pain Points & Opportunity Discovery</h4>
+                <p>Focused sessions on the biggest problems. Begin shaping initiative candidates.</p>
+                <ul>
+                    <li>Working sessions with stakeholders on identified pain points</li>
+                    <li>Review data flow gaps and manual handoffs</li>
+                    <li>Draft initial list of potential initiatives (raw, unfiltered)</li>
+                    <li>Brandy review — gut-check priorities</li>
+                </ul>
+            </div>
+            <div class="day-card d4">
+                <div class="day-label">Thursday</div>
+                <h4>Initiative Scoping & Validation</h4>
+                <p>Narrow to 2–4 high-impact initiatives. Begin defining objectives, outcomes, and dependencies.</p>
+                <ul>
+                    <li>Score and prioritize initiative candidates (impact vs. effort)</li>
+                    <li>Define objectives and expected outcomes for each</li>
+                    <li>Identify dependencies, risks, and assumptions</li>
+                    <li>Working session with Brandy — refine and validate</li>
+                </ul>
+            </div>
+            <div class="day-card d5">
+                <div class="day-label">Friday (until noon)</div>
+                <h4>Wrap-Up & Next Steps</h4>
+                <p>Final alignment session. Confirm initiative scope and set expectations for follow-up.</p>
+                <ul>
+                    <li>Present finalized 2–4 initiative recommendations</li>
+                    <li>Walk through recommended sequencing and approach</li>
+                    <li>Confirm follow-up summary timeline (delivered by end of following week)</li>
+                    <li>Departure by noon per SOW</li>
+                </ul>
+            </div>
+
+            <div class="callout callout-imp"><span class="callout-icon">💡</span><span
+                    class="callout-text"><strong>Flexibility:</strong> This agenda is a starting framework. Chris will
+                    adjust daily based on what's discovered — the best insights often come from following unexpected
+                    threads.</span></div>
+        </div>
+
+        <!-- ═══ SECTION 5 ═══ -->
+        <div class="sec" id="s5">
+            <span class="sn">Section 05</span>
+            <h2>Deliverable Tracking</h2>
+            <p class="si">This section will be used during and after the on-site visit to track the 2–4 business value
+                initiatives as they're identified. You may also use this to note early ideas before Chris arrives.</p>
+
+            <div class="q-row" id="row-I1">
+                <div class="q-top"><span class="q-id">I1</span>
+                    <div>
+                        <div class="q-text"><strong>Initiative #1</strong> — Describe the opportunity, expected outcome,
+                            and any known dependencies.</div>
+                        <div class="q-why">This will be refined during the on-site engagement</div>
+                    </div><span class="q-status" id="st-I1">⬜</span>
+                </div>
+                <div class="q-input"><textarea id="I1"
+                        placeholder="e.g. Automate the document intake pipeline to eliminate 3 hours of daily manual entry..."
+                        oninput="save(this)"></textarea></div>
+            </div>
+            <div class="q-row" id="row-I2">
+                <div class="q-top"><span class="q-id">I2</span>
+                    <div>
+                        <div class="q-text"><strong>Initiative #2</strong> — Describe the opportunity, expected outcome,
+                            and any known dependencies.</div>
+                        <div class="q-why">This will be refined during the on-site engagement</div>
+                    </div><span class="q-status" id="st-I2">⬜</span>
+                </div>
+                <div class="q-input"><textarea id="I2"
+                        placeholder="e.g. Build a real-time operations dashboard showing volume, status, and bottlenecks..."
+                        oninput="save(this)"></textarea></div>
+            </div>
+            <div class="q-row" id="row-I3">
+                <div class="q-top"><span class="q-id">I3</span>
+                    <div>
+                        <div class="q-text"><strong>Initiative #3</strong> — Describe the opportunity, expected outcome,
+                            and any known dependencies.</div>
+                        <div class="q-why">This will be refined during the on-site engagement</div>
+                    </div><span class="q-status" id="st-I3">⬜</span>
+                </div>
+                <div class="q-input"><textarea id="I3" placeholder="e.g. Modernize the client communication workflow..."
+                        oninput="save(this)"></textarea></div>
+            </div>
+            <div class="q-row" id="row-I4">
+                <div class="q-top"><span class="q-id">I4</span>
+                    <div>
+                        <div class="q-text"><strong>Initiative #4</strong> — Describe the opportunity, expected outcome,
+                            and any known dependencies.</div>
+                        <div class="q-why">This will be refined during the on-site engagement</div>
+                    </div><span class="q-status" id="st-I4">⬜</span>
+                </div>
+                <div class="q-input"><textarea id="I4"
+                        placeholder="e.g. Implement process monitoring and self-healing for critical batch jobs..."
+                        oninput="save(this)"></textarea></div>
+            </div>
+        </div>
+
+        <!-- ═══ SECTION 6 ═══ -->
+        <div class="sec" id="s6">
+            <span class="sn">Section 06</span>
+            <h2>Required Pre-Visit Deliverables</h2>
+            <p class="si">In addition to completing the questionnaire above, please provide the following materials
+                before Chris arrives on-site.</p>
+
+            <div class="cc-card blk"><span class="cc-id">RD1</span>
+                <div class="cc-b">
+                    <h4><span class="sev">⛔</span> Completed Pre-Visit Forms</h4>
+                    <p>All Section 1 questionnaire fields must be filled out and exported via the <strong>Export
+                            Responses</strong> button above, or completed during a brief pre-visit call.</p>
+                </div>
+            </div>
+            <div class="cc-card blk"><span class="cc-id">RD2</span>
+                <div class="cc-b">
+                    <h4><span class="sev">⛔</span> Video Walkthrough with Screenshots</h4>
+                    <p>A screen recording (Loom, Teams, or similar) showing: key systems in use, daily workflows, and
+                        any problem areas. Annotated screenshots of key screens are also valuable.</p>
+                </div>
+            </div>
+            <div class="cc-card wrn"><span class="cc-id">RD3</span>
+                <div class="cc-b">
+                    <h4><span class="sev">⚠️</span> Organization Chart or Team List</h4>
+                    <p>A simple org chart, team roster, or list of names/roles helps Chris understand the organization
+                        before arrival.</p>
+                </div>
+            </div>
+            <div class="cc-card wrn"><span class="cc-id">RD4</span>
+                <div class="cc-b">
+                    <h4><span class="sev">⚠️</span> System Credentials or Access Arrangements</h4>
+                    <p>View-only credentials or pre-arranged observer access to key systems. Shared securely via this
+                        document's portal or a password manager.</p>
+                </div>
+            </div>
+            <div class="cc-card inf"><span class="cc-id">RD5</span>
+                <div class="cc-b">
+                    <h4>Sample Documents & Reports</h4>
+                    <p>Any sample intake forms, reports, spreadsheets, or outputs that represent typical daily
+                        operations. These help Chris prepare before Day 1.</p>
+                </div>
+            </div>
+
+            <div class="callout callout-note"><span class="callout-icon">📋</span><span
+                    class="callout-text"><strong>Tip:</strong> Record a 5–10 minute Loom video (loom.com — free) walking
+                    through your most important daily workflow. This single recording often answers 80% of our discovery
+                    questions before we arrive.</span></div>
+        </div>
+
+        <div class="doc-footer">
+            <div class="div"></div>
+            <p><strong>Prepared for Professional Civil Process</strong></p>
+            <p>On-Site Discovery & Business Value Scoping — Pre-Visit Preparation Guide</p>
+            <p>© 2026 — Confidential</p>
+        </div>
+    </div>
+
+    <div class="toast" id="toast"></div>
+
+    <script>
+        const QS = ['A1', 'A2', 'A3', 'A4', 'B1', 'B2', 'B3', 'B4', 'C1', 'C2', 'C3', 'C4', 'D1', 'D2', 'D3', 'D4', 'E1', 'E2', 'E3', 'E4', 'I1', 'I2', 'I3', 'I4'];
+        const KEY = 'pcp_onsite_discovery_v1';
+
+        function save(el) {
+            const d = JSON.parse(localStorage.getItem(KEY) || '{}');
+            d[el.id] = el.value;
+            d._updated = new Date().toISOString();
+            localStorage.setItem(KEY, JSON.stringify(d));
+            updateStatus(el.id);
+            updateProgress();
+        }
+
+        function load() {
+            const d = JSON.parse(localStorage.getItem(KEY) || '{}');
+            QS.forEach(q => {
+                const el = document.getElementById(q);
+                if (el && d[q]) { el.value = d[q]; updateStatus(q) }
+            });
+            updateProgress();
+        }
+
+        function updateStatus(id) {
+            const el = document.getElementById(id);
+            const st = document.getElementById('st-' + id);
+            const row = document.getElementById('row-' + id);
+            if (el && st && row) {
+                if (el.value.trim()) { st.textContent = '✅'; row.classList.add('answered') }
+                else { st.textContent = '⬜'; row.classList.remove('answered') }
+            }
+        }
+
+        function updateProgress() {
+            let done = 0;
+            QS.forEach(q => { const e = document.getElementById(q); if (e && e.value.trim()) done++ });
+            document.getElementById('saveStatus').textContent =
+                done === 0 ? 'All answers auto-save in this browser' :
+                    done === QS.length ? `✅ All ${QS.length} fields completed — ready to export` :
+                        `${done} of ${QS.length} fields completed — auto-saved`;
+        }
+
+        function showToast(msg) {
+            const t = document.getElementById('toast');
+            t.textContent = msg; t.classList.add('show');
+            setTimeout(() => t.classList.remove('show'), 3000);
+        }
+
+        function exportAnswers() {
+            const d = JSON.parse(localStorage.getItem(KEY) || '{}');
+            let txt = 'PCP ON-SITE DISCOVERY — PRE-VISIT RESPONSES\n';
+            txt += 'Exported: ' + new Date().toLocaleString() + '\n';
+            txt += '=' + '='.repeat(55) + '\n\n';
+            const labels = { A1: 'Total employees & org structure', A2: 'Key stakeholders to meet', A3: 'Core business description', A4: 'Revenue range & drivers', B1: 'All software systems in use', B2: 'Systems to replace / frustrations', B3: 'Data flow between systems', B4: 'IT infrastructure management', C1: 'Typical job lifecycle', C2: 'Most time-consuming manual tasks', C3: 'Bottlenecks & delays', C4: 'Current reporting & tracking', D1: '#1 operational problem to fix', D2: 'Business goals (6-12 months)', D3: 'Compliance / regulatory requirements', D4: 'Past improvement attempts', E1: 'Office address & parking', E2: 'Office hours', E3: 'Dedicated workspace & Wi-Fi', E4: 'Security / access restrictions', I1: 'Initiative #1', I2: 'Initiative #2', I3: 'Initiative #3', I4: 'Initiative #4' };
+            QS.forEach(q => {
+                txt += `[${q}] ${labels[q]}\n`;
+                txt += `${d[q] || '(not answered)'}\n\n`;
+            });
+            const blob = new Blob([txt], { type: 'text/plain' });
+            const a = document.createElement('a');
+            a.href = URL.createObjectURL(blob);
+            a.download = 'PCP_OnSite_Discovery_Responses_' + new Date().toISOString().slice(0, 10) + '.txt';
+            a.click();
+            showToast('✅ Responses exported successfully');
+        }
+
+        function clearAll() {
+            if (!confirm('Clear all answers? This cannot be undone.')) return;
+            localStorage.removeItem(KEY);
+            QS.forEach(q => { const e = document.getElementById(q); if (e) { e.value = ''; updateStatus(q) } });
+            updateProgress();
+            showToast('🗑️ All answers cleared');
+        }
+
+        window.addEventListener('DOMContentLoaded', load);
+    </script>
+</body>
+
+</html>
