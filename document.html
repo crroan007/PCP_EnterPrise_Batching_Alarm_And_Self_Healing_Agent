@@ -1,0 +1,1470 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PCP Nexus - Logic Confirmation Document v3.0</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.7;
+            color: #1a1a2e;
+            background: #fff;
+            padding: 0;
+        }
+
+        @media print {
+            body {
+                padding: 0;
+            }
+
+            .page-break {
+                page-break-before: always;
+            }
+
+            .no-print {
+                display: none !important;
+            }
+
+            section {
+                page-break-inside: avoid;
+            }
+
+            .cover {
+                min-height: 100vh;
+            }
+        }
+
+        .cover {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            color: white;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 60px;
+        }
+
+        .cover h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            letter-spacing: -1px;
+        }
+
+        .cover .subtitle {
+            font-size: 1.5rem;
+            font-weight: 300;
+            opacity: 0.9;
+            margin-bottom: 60px;
+        }
+
+        .cover .meta {
+            font-size: 1rem;
+            opacity: 0.7;
+        }
+
+        .cover .meta p {
+            margin: 8px 0;
+        }
+
+        .cover .badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            padding: 8px 24px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            margin-top: 40px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 60px 40px;
+        }
+
+        .toc {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 12px;
+            margin: 30px 0;
+        }
+
+        .toc h2 {
+            margin-top: 0;
+            font-size: 1.6rem;
+            color: #16213e;
+            border-bottom: 2px solid #e0e0e0;
+            padding-bottom: 8px;
+            margin-bottom: 15px;
+        }
+
+        .toc ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .toc li {
+            padding: 8px 0;
+            border-bottom: 1px solid #e0e0e0;
+            font-size: 0.95rem;
+        }
+
+        .toc li:last-child {
+            border-bottom: none;
+        }
+
+        h2 {
+            font-size: 20px;
+            color: #0a1628;
+            margin: 30px 0 15px;
+            border-bottom: 2px solid #e0e0e0;
+            padding-bottom: 8px;
+        }
+
+        h3 {
+            font-size: 16px;
+            color: #0a1628;
+            margin: 20px 0 10px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            font-size: 13px;
+        }
+
+        th {
+            background: #0a1628;
+            color: #fff;
+            padding: 10px 12px;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        td {
+            padding: 8px 12px;
+            border: 1px solid #ddd;
+            vertical-align: top;
+        }
+
+        tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+
+        .confirm-box {
+            display: inline-block;
+            width: 18px;
+            height: 18px;
+            border: 2px solid #333;
+            margin-right: 8px;
+            vertical-align: middle;
+        }
+
+        .section {
+            margin-bottom: 30px;
+        }
+
+        .flowstep {
+            background: #f0f4ff;
+            border: 1px solid #c5d5f5;
+            border-radius: 8px;
+            padding: 12px 16px;
+            margin: 8px 0;
+            font-size: 13px;
+        }
+
+        .flowstep .step-num {
+            font-weight: 700;
+            color: #0a1628;
+            margin-right: 8px;
+        }
+
+        .important {
+            background: #e8f5e9;
+            border-left: 4px solid #4caf50;
+            padding: 10px 14px;
+            margin: 10px 0;
+            font-size: 13px;
+        }
+
+        .warning {
+            background: #fff3e0;
+            border-left: 4px solid #ff9800;
+            padding: 10px 14px;
+            margin: 10px 0;
+            font-size: 13px;
+        }
+
+        .answer {
+            background: #e3f2fd;
+            border-left: 4px solid #2196f3;
+            padding: 10px 14px;
+            margin: 10px 0;
+            font-size: 13px;
+        }
+
+        .change-note {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 12px 16px;
+            margin: 20px 0;
+            font-size: 13px;
+        }
+
+        .change-note strong {
+            color: #856404;
+        }
+
+        .sign-off {
+            margin-top: 40px;
+            border-top: 2px solid #0a1628;
+            padding-top: 20px;
+        }
+
+        ul {
+            margin: 10px 0 10px 20px;
+        }
+
+        li {
+            margin: 4px 0;
+            font-size: 13px;
+        }
+
+        .print-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #0f3460;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+        }
+
+        .print-btn:hover {
+            background: #1a1a2e;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 0;
+            color: #666;
+            border-top: 1px solid #e0e0e0;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+
+<body>
+    <button class="print-btn no-print" onclick="window.print()">&#128424; Print to PDF</button>
+
+    <!-- COVER PAGE -->
+    <div class="cover">
+        <h1>PCP Nexus</h1>
+        <p class="subtitle">Logic Confirmation Document</p>
+        <div class="meta">
+            <p><strong>Prepared for:</strong> Brandy Knight, PCP</p>
+            <p><strong>Version:</strong> 3.0</p>
+            <p><strong>Date:</strong> February 7, 2026</p>
+        </div>
+        <span class="badge">For Customer Review &amp; Approval</span>
+    </div>
+
+    <div class="content">
+
+        <!-- TABLE OF CONTENTS -->
+        <div class="toc page-break">
+            <h2>Contents</h2>
+            <ul>
+                <li><strong>Q&amp;A</strong> - Answers to Your Questions</li>
+                <li><strong>Config</strong> - Configurability - Nothing Is Hardcoded</li>
+                <li><strong>1.</strong> System Overview</li>
+                <li><strong>2.</strong> Phase 1 - eAffidavits Processing</li>
+                <li><strong>3.</strong> Phase 2 - eFiling Petitions Processing</li>
+                <li><strong>4.</strong> Data Output - CSV Spreadsheet Specifications</li>
+                <li><strong>5.</strong> PCP Nexus Dashboard</li>
+                <li><strong>6.</strong> Database Architecture - SQLite and MySQL</li>
+                <li><strong>7.</strong> Final Confirmation and Sign-Off</li>
+            </ul>
+        </div>
+
+        <div class="change-note">
+            <strong>Version 3.0 Changes:</strong> This document incorporates all corrections, clarifications, and
+            feedback
+            provided by Brandy Knight (VP, PCP) on February 7, 2026. All items marked with her approval have been
+            integrated. All open questions have been answered. All naming conventions now use real PCP Job Number
+            examples.
+            No shorthand or abbreviations are used - every column name, folder path, and file format is spelled out in
+            full.
+        </div>
+
+        <!-- ============================================================ -->
+        <h2>Answers to Your Questions</h2>
+        <!-- ============================================================ -->
+
+        <div class="section">
+            <p>The following answers respond directly to the questions raised by Brandy Knight (VP, PCP) during the
+                review
+                of Version 2.0 of this document and in subsequent email correspondence.</p>
+
+            <table>
+                <tr>
+                    <th style="width:40px">#</th>
+                    <th>Your Question</th>
+                    <th>Our Answer</th>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td><strong>Are we going to receive both a CSV file and an Excel spreadsheet?</strong></td>
+                    <td><strong>Yes.</strong> The system will generate both. The CSV file contains the 8 columns needed
+                        for
+                        FilePro import (Envelope_Num, Case_Num, Date_Submitted, Time_Submitted, Date_Accepted,
+                        Time_Accepted, Lead_Document, PCP_Job_Num). The Excel spreadsheet contains additional detail
+                        columns
+                        such as accepted comments, download URLs, processing timestamps, and status information. See
+                        Section
+                        4 for full CSV specifications.</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td><strong>Is it going to be okay to have both spreadsheets (CSV and Excel) in the same folder? Or
+                            should the Excel be in a different folder?</strong></td>
+                    <td><strong>They will be in separate folders.</strong> The CSV file will be placed in the configured
+                        network share folder (default: \\172.31.47.151\psaffidavits\AI_Inbound). The Excel spreadsheet
+                        will
+                        be stored separately in the PCP Nexus application's local data folder on the server. This
+                        eliminates
+                        any risk of the Excel file interfering with the CSV file or your FilePro task scheduler.</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td><strong>We only need the spreadsheets once a day. When is the system going to place the
+                            spreadsheets? Is 10:00 PM okay?</strong></td>
+                    <td><strong>Yes, 10:00 PM works.</strong> The system will generate and place the CSV file once per
+                        day
+                        at 10:00 PM. This time is configurable in the PCP Nexus Settings interface and can be changed at
+                        any
+                        time without a code update. The CSV will also be automatically emailed to the designated
+                        recipient
+                        (configurable) at the same time via the Outlook connection the bot already
+                        uses.<br><br><strong>Important Note:</strong> We recommend restarting the computer workstation
+                        every
+                        morning to ensure the workstation does not consume excessive memory over time and cause issues
+                        with
+                        the software. In the event the computer is offline during the time the report is due, the report
+                        will be delivered upon the next startup.</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td><strong>Do we need a separate Expired Links folder?</strong></td>
+                    <td><strong>No.</strong> Expired links and all errors will be moved to the AI Exceptions folder.
+                        Download links from Tyler Technologies are active for 45 days, so expiration should be rare. If
+                        PCP
+                        later determines that a separate Expired Links sub-folder is needed, this can be added through
+                        the
+                        PCP Nexus Settings interface without any code changes.</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td><strong>The dashboard shows exceptions - is it going to combine both phases' AI Exceptions
+                            folders
+                            together?</strong></td>
+                    <td><strong>Yes.</strong> The dashboard will show all exceptions from both the
+                        eaffidavits@pcpusa.net
+                        mailbox (Phase 1) and the efiling@pcpusa.net mailbox (Phase 2) in a single combined Exceptions
+                        view.
+                        Each exception will be labeled with its <strong>Phase</strong> (Phase 1 or Phase 2) and its
+                        <strong>Exception Type</strong> (Expired Link, Download Error, Invalid Sender, Missing Envelope
+                        ID,
+                        etc.) so you can filter and sort by either column.
+                    </td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td><strong>AX69 - should this be processed or ignored?</strong></td>
+                    <td><strong>Ignored.</strong> AX69 (Misc Court Request), along with AX81 (Misc Court Request) and CL
+                        (Clerk Letter), are received in the mailbox but filed away only. The bot will not save, rename,
+                        or
+                        merge documents with these prefixes. They are discarded during processing.</td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- ============================================================ -->
+        <h2>Configurability - Nothing Is Hardcoded</h2>
+        <!-- ============================================================ -->
+
+        <div class="section">
+            <div class="important">
+                <strong>All mailboxes, folder names, output paths, and scheduling settings are fully configurable
+                    through
+                    the PCP Nexus Settings interface.</strong> Nothing is hardcoded into the application. The values
+                shown
+                throughout this document (mailbox addresses, folder names, network share paths, CSV placement time,
+                auto-email recipients) are the current recommended defaults. PCP can change any of these settings at any
+                time through the Settings interface without requiring a code update, a redeployment, or developer
+                involvement.
+            </div>
+
+            <p>Specifically, the following are all independently configurable per mailbox:</p>
+            <ul>
+                <li><strong>Mailbox address</strong> - which shared Outlook mailbox to monitor (e.g.,
+                    eaffidavits@pcpusa.net, efiling@pcpusa.net)</li>
+                <li><strong>Input folder name</strong> - where new emails are picked up from (e.g., AI To Be Completed,
+                    1 -
+                    Accepted Filing)</li>
+                <li><strong>Completed folder name</strong> - where processed emails are moved to (e.g., 3 - AI
+                    Completed)
+                </li>
+                <li><strong>Exception folder name</strong> - where errors and expired links are moved to (e.g., AI
+                    Exceptions)</li>
+                <li><strong>PDF output folder path</strong> - where renamed or merged PDF files are saved (e.g.,
+                    \\172.31.47.151\psaffidavits\AI_Inbound\File_Stamped_Affidavits)</li>
+                <li><strong>CSV output folder path</strong> - where the daily CSV file is placed (e.g.,
+                    \\172.31.47.151\psaffidavits\AI_Inbound)</li>
+                <li><strong>CSV placement time</strong> - what time the daily CSV is generated and placed (e.g., 10:00
+                    PM)
+                </li>
+                <li><strong>Auto-email recipient</strong> - who receives the daily CSV email (configurable, with on/off
+                    toggle)</li>
+            </ul>
+        </div>
+
+        <!-- ============================================================ -->
+        <h2>1. System Overview</h2>
+        <!-- ============================================================ -->
+
+        <div class="section">
+            <p>PCP Nexus is an automated document processing system that monitors two shared Microsoft Outlook mailboxes
+                for
+                accepted court filing notifications from Tyler Technologies. The system operates in two distinct phases:
+            </p>
+
+            <table>
+                <tr>
+                    <th>Setting</th>
+                    <th>Phase 1 - eAffidavits (Single Document Processing)</th>
+                    <th>Phase 2 - eFiling Petitions (Multi-Document Merge Processing)</th>
+                </tr>
+                <tr>
+                    <td><strong>Mailbox</strong></td>
+                    <td>eaffidavits@pcpusa.net</td>
+                    <td>efiling@pcpusa.net</td>
+                </tr>
+                <tr>
+                    <td><strong>Sender Email</strong></td>
+                    <td>no-reply@efilingmail.tylertech.cloud</td>
+                    <td>no-reply@efilingmail.tylertech.cloud</td>
+                </tr>
+                <tr>
+                    <td><strong>Subject Line Contains</strong></td>
+                    <td>Filing Accepted</td>
+                    <td>Filing Accepted</td>
+                </tr>
+                <tr>
+                    <td><strong>Input Document Prefixes (received in email)</strong></td>
+                    <td>AX02, AX03, AX07, AX09</td>
+                    <td>AX40, AXPB, AXPE, AXPM, AXPL, AXPA, AX69, AX81, CL</td>
+                </tr>
+                <tr>
+                    <td><strong>Output Document Prefixes (after rename)</strong></td>
+                    <td>AX42, AX43, AX47, AX89</td>
+                    <td>AX40 (merged petition document)</td>
+                </tr>
+                <tr>
+                    <td><strong>Processing Type</strong></td>
+                    <td>Single document: download, rename, save</td>
+                    <td>Multiple documents: gather by Envelope ID, merge into one PDF, save</td>
+                </tr>
+            </table>
+
+            <div class="important">
+                <strong>Important Clarification - Input vs. Output Prefixes:</strong><br>
+                Phase 1 receives documents with prefixes AX02, AX03, AX07, and AX09. These are the naming conventions in
+                the
+                emails as received from Tyler Technologies. After the bot downloads the file-stamped copy, it renames
+                AX02
+                to AX42, AX03 to AX43, AX07 to AX47, and AX09 to AX89. The renamed prefixes (AX42, AX43, AX47, AX89) are
+                the
+                output naming conventions, not the input naming conventions.
+            </div>
+
+            <div class="important">
+                <strong>Important Clarification - Phase 2 Ignored Documents:</strong><br>
+                Phase 2 receives documents with prefixes AX40, AXPB, AXPE, AXPM, AXPL, AXPA, AX69, AX81, and CL. Of
+                these,
+                AX69 (Misc Court Request), AX81 (Misc Court Request), and CL (Clerk Letter) are received but filed away
+                only. These documents do not need to be saved, renamed, or merged with any other document. The bot will
+                discard these prefixes during processing.
+            </div>
+        </div>
+
+        <!-- ============================================================ -->
+        <h2>2. Phase 1 - eAffidavits Processing</h2>
+        <!-- ============================================================ -->
+
+        <h3>2.1 Source Configuration</h3>
+        <div class="section">
+            <table>
+                <tr>
+                    <th>Setting</th>
+                    <th>Value</th>
+                    <th style="width:80px">Confirm</th>
+                </tr>
+                <tr>
+                    <td><strong>Mailbox</strong></td>
+                    <td>eaffidavits@pcpusa.net</td>
+                    <td><span class="confirm-box"></span></td>
+                </tr>
+                <tr>
+                    <td><strong>Sender Email Address</strong></td>
+                    <td>no-reply@efilingmail.tylertech.cloud</td>
+                    <td><span class="confirm-box"></span></td>
+                </tr>
+                <tr>
+                    <td><strong>Input Folder</strong></td>
+                    <td>AI To Be Completed<br><em>(Single flat folder - all accepted emails with AX02, AX03, AX07, or
+                            AX09
+                            in the body are moved here. No subfolders by document type.)</em></td>
+                    <td><span class="confirm-box"></span></td>
+                </tr>
+                <tr>
+                    <td><strong>Completed Folder</strong></td>
+                    <td>3 - AI Completed<br><em>(Configurable in PCP Nexus Settings interface)</em></td>
+                    <td><span class="confirm-box"></span></td>
+                </tr>
+                <tr>
+                    <td><strong>Exception Folder</strong></td>
+                    <td>AI Exceptions<br><em>(All errors and expired links are moved here. Configurable in PCP Nexus
+                            Settings interface.)</em></td>
+                    <td><span class="confirm-box"></span></td>
+                </tr>
+                <tr>
+                    <td><strong>Output Folder for PDF Files</strong></td>
+                    <td>Configurable in PCP Nexus Settings interface<br><em>Default:
+                            \\172.31.47.151\psaffidavits\AI_Inbound\File_Stamped_Affidavits</em></td>
+                    <td><span class="confirm-box"></span></td>
+                </tr>
+                <tr>
+                    <td><strong>Output Folder for CSV File</strong></td>
+                    <td>Configurable in PCP Nexus Settings interface<br><em>Default:
+                            \\172.31.47.151\psaffidavits\AI_Inbound</em></td>
+                    <td><span class="confirm-box"></span></td>
+                </tr>
+            </table>
+
+            <div class="warning">
+                <strong>Note:</strong> All folder names and output paths shown above are the recommended defaults. Every
+                folder path is configurable through the PCP Nexus Settings interface. PCP can change any folder name or
+                network path at any time without requiring a code change.
+            </div>
+        </div>
+
+        <h3>2.2 Phase 1 Workflow - Step by Step</h3>
+        <div class="section">
+            <div class="flowstep"><span class="step-num">Step 1.</span> Bot opens Microsoft Outlook and navigates to the
+                shared mailbox <strong>eaffidavits@pcpusa.net</strong>.</div>
+            <div class="flowstep"><span class="step-num">Step 2.</span> Bot opens the input folder <strong>AI To Be
+                    Completed</strong> (single flat folder, no subfolders).</div>
+            <div class="flowstep"><span class="step-num">Step 3.</span> Bot selects the <strong>oldest unread
+                    email</strong>
+                in the folder.</div>
+            <div class="flowstep"><span class="step-num">Step 4.</span> Bot validates: (a) Sender email address equals
+                <strong>no-reply@efilingmail.tylertech.cloud</strong>, and (b) Subject line contains <strong>Filing
+                    Accepted</strong>. If either check fails, the email is moved to <strong>AI Exceptions</strong>.
+            </div>
+            <div class="flowstep"><span class="step-num">Step 5.</span> Bot reads the email body and identifies the
+                <strong>Lead Document prefix</strong>. The prefix must be one of: <strong>AX02</strong>,
+                <strong>AX03</strong>, <strong>AX07</strong>, or <strong>AX09</strong>. If the prefix does not match any
+                of
+                these four, the email is moved to <strong>AI Exceptions</strong>.
+            </div>
+            <div class="flowstep"><span class="step-num">Step 6.</span> Bot clicks the hyperlink in the email body to
+                <strong>download the file-stamped PDF document</strong> from Tyler Technologies. If the download link
+                has
+                expired (links are active for 45 days) or is corrupted, the email is moved to <strong>AI
+                    Exceptions</strong>.
+            </div>
+            <div class="flowstep"><span class="step-num">Step 7.</span> Bot extracts the <strong>PCP Job Number</strong>
+                from the Lead Document file name. The PCP Job Number is always 9 characters long, starts with the letter
+                A,
+                and follows the 4-character prefix. Example: from the file name <strong>AX02A25C05955.pdf</strong>, the
+                PCP
+                Job Number is <strong>A25C05955</strong>.</div>
+            <div class="flowstep"><span class="step-num">Step 8.</span> Bot <strong>renames the downloaded file</strong>
+                by
+                replacing the input prefix with the corresponding output prefix, keeping the PCP Job Number unchanged:
+                <table style="margin-top:8px">
+                    <tr>
+                        <th>Input Prefix (Received)</th>
+                        <th>Output Prefix (Renamed)</th>
+                        <th>Example Input File Name</th>
+                        <th>Example Output File Name</th>
+                    </tr>
+                    <tr>
+                        <td>AX02</td>
+                        <td>AX42</td>
+                        <td>AX02A25C05955.pdf</td>
+                        <td>AX42A25C05955.pdf</td>
+                    </tr>
+                    <tr>
+                        <td>AX03</td>
+                        <td>AX43</td>
+                        <td>AX03A25A05247.pdf</td>
+                        <td>AX43A25A05247.pdf</td>
+                    </tr>
+                    <tr>
+                        <td>AX07</td>
+                        <td>AX47</td>
+                        <td>AX07A25A01870.pdf</td>
+                        <td>AX47A25A01870.pdf</td>
+                    </tr>
+                    <tr>
+                        <td>AX09</td>
+                        <td>AX89</td>
+                        <td>AX09A25B02479.pdf</td>
+                        <td>AX89A25B02479.pdf</td>
+                    </tr>
+                </table>
+                <em>Note: Three of the output prefixes begin with AX4 (AX42, AX43, AX47). One output prefix begins with
+                    AX8
+                    (AX89).</em>
+            </div>
+            <div class="flowstep"><span class="step-num">Step 9.</span> Bot <strong>saves the renamed PDF file</strong>
+                to
+                the configured output folder (default: \\172.31.47.151\psaffidavits\AI_Inbound\File_Stamped_Affidavits).
+            </div>
+            <div class="flowstep"><span class="step-num">Step 10.</span> Bot <strong>marks the email as read</strong>
+                and
+                <strong>moves it</strong> to the completed folder <strong>3 - AI Completed</strong>.
+            </div>
+            <div class="flowstep"><span class="step-num">Step 11.</span> Bot <strong>logs the processed email</strong>
+                to
+                the SQLite database and the PCP Nexus Dashboard.</div>
+            <div class="flowstep"><span class="step-num">Step 12.</span> Bot <strong>saves the CSV spreadsheet</strong>
+                to
+                the configured CSV output folder (default: \\172.31.47.151\psaffidavits\AI_Inbound). See Section 4 for
+                full
+                CSV specifications.</div>
+            <div class="flowstep"><span class="step-num">Step 13.</span> Bot checks for more unread emails in the input
+                folder. If more emails exist, return to Step 3. If no more emails exist, the processing cycle is
+                complete.
+            </div>
+        </div>
+
+        <h3>2.3 Phase 1 Prefix Reference Table</h3>
+        <div class="section">
+            <table>
+                <tr>
+                    <th>Input Prefix</th>
+                    <th>Document Type</th>
+                    <th>Output Prefix</th>
+                    <th>Action</th>
+                    <th>Example Input</th>
+                    <th>Example Output</th>
+                    <th style="width:80px">Confirm</th>
+                </tr>
+                <tr>
+                    <td>AX02</td>
+                    <td>Affidavit - Return of Service</td>
+                    <td>AX42</td>
+                    <td>Download, Rename, Save</td>
+                    <td>AX02A25C05955.pdf</td>
+                    <td>AX42A25C05955.pdf</td>
+                    <td><span class="confirm-box"></span></td>
+                </tr>
+                <tr>
+                    <td>AX03</td>
+                    <td>Affidavit - Due and Intelligent Search</td>
+                    <td>AX43</td>
+                    <td>Download, Rename, Save</td>
+                    <td>AX03A25A05247.pdf</td>
+                    <td>AX43A25A05247.pdf</td>
+                    <td><span class="confirm-box"></span></td>
+                </tr>
+                <tr>
+                    <td>AX07</td>
+                    <td>Affidavit - Non Est</td>
+                    <td>AX47</td>
+                    <td>Download, Rename, Save</td>
+                    <td>AX07A25A01870.pdf</td>
+                    <td>AX47A25A01870.pdf</td>
+                    <td><span class="confirm-box"></span></td>
+                </tr>
+                <tr>
+                    <td>AX09</td>
+                    <td>Affidavit - Military</td>
+                    <td>AX89</td>
+                    <td>Download, Rename, Save</td>
+                    <td>AX09A25B02479.pdf</td>
+                    <td>AX89A25B02479.pdf</td>
+                    <td><span class="confirm-box"></span></td>
+                </tr>
+            </table>
+        </div>
+
+        <h3>2.4 PCP Job Number Format</h3>
+        <div class="section">
+            <table>
+                <tr>
+                    <th>Rule</th>
+                    <th>Requirement</th>
+                    <th style="width:80px">Confirm</th>
+                </tr>
+                <tr>
+                    <td>Total Length</td>
+                    <td>Always exactly <strong>9 characters</strong> (including the leading letter A)</td>
+                    <td><span class="confirm-box"></span></td>
+                </tr>
+                <tr>
+                    <td>Starts With</td>
+                    <td>Always starts with the uppercase letter <strong>A</strong></td>
+                    <td><span class="confirm-box"></span></td>
+                </tr>
+                <tr>
+                    <td>Characters</td>
+                    <td>Alphanumeric only (uppercase letters A-Z and digits 0-9). No dashes, underscores, extra spaces,
+                        or
+                        symbols.</td>
+                    <td><span class="confirm-box"></span></td>
+                </tr>
+                <tr>
+                    <td>Extraction Method</td>
+                    <td>Extracted from the Lead Document file name by removing the 4-character prefix (AX##). Everything
+                        after the prefix is the PCP Job Number.</td>
+                    <td><span class="confirm-box"></span></td>
+                </tr>
+                <tr>
+                    <td>Example 1</td>
+                    <td>Lead Document: <strong>AX02A25C05955.pdf</strong> &rarr; PCP Job Number:
+                        <strong>A25C05955</strong>
+                    </td>
+                    <td><span class="confirm-box"></span></td>
+                </tr>
+                <tr>
+                    <td>Example 2</td>
+                    <td>Lead Document: <strong>AX09A25B02479.pdf</strong> &rarr; PCP Job Number:
+                        <strong>A25B02479</strong>
+                    </td>
+                    <td><span class="confirm-box"></span></td>
+                </tr>
+                <tr>
+                    <td>Example 3</td>
+                    <td>Lead Document: <strong>AX07A25A05247.pdf</strong> &rarr; PCP Job Number:
+                        <strong>A25A05247</strong>
+                    </td>
+                    <td><span class="confirm-box"></span></td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- ============================================================ -->
+        <h2 class="page-break">3. Phase 2 - eFiling Petitions Processing</h2>
+        <!-- ============================================================ -->
+
+        <h3>3.1 Source Configuration</h3>
+        <div class="section">
+            <table>
+                <tr>
+                    <th>Setting</th>
+                    <th>Value</th>
+                    <th style="width:80px">Confirm</th>
+                </tr>
+                <tr>
+                    <td><strong>Mailbox</strong></td>
+                    <td>efiling@pcpusa.net</td>
+                    <td><span class="confirm-box"></span></td>
+                </tr>
+                <tr>
+                    <td><strong>Sender Email Address</strong></td>
+                    <td>no-reply@efilingmail.tylertech.cloud</td>
+                    <td><span class="confirm-box"></span></td>
+                </tr>
+                <tr>
+                    <td><strong>Input Folder</strong></td>
+                    <td>1 - Accepted Filing<br><em>(Configurable in PCP Nexus Settings interface)</em></td>
+                    <td><span class="confirm-box"></span></td>
+                </tr>
+                <tr>
+                    <td><strong>Completed Folder</strong></td>
+                    <td>3 - AI Completed<br><em>(Configurable in PCP Nexus Settings interface)</em></td>
+                    <td><span class="confirm-box"></span></td>
+                </tr>
+                <tr>
+                    <td><strong>Exception Folder</strong></td>
+                    <td>AI Exceptions<br><em>(All errors, expired links, and corrupted downloads are moved here. There
+                            is no
+                            separate Expired Links folder. Configurable in PCP Nexus Settings interface.)</em></td>
+                    <td><span class="confirm-box"></span></td>
+                </tr>
+                <tr>
+                    <td><strong>Output Folder for Merged PDF Files</strong></td>
+                    <td>Configurable in PCP Nexus Settings interface<br><em>Default:
+                            \\172.31.47.151\psaffidavits\AI_Inbound\File_Stamped_Petitions</em></td>
+                    <td><span class="confirm-box"></span></td>
+                </tr>
+            </table>
+
+            <div class="important">
+                <strong>No Separate Expired Links Folder:</strong> There is no separate folder for expired links.
+                Download
+                links from Tyler Technologies are active for 45 days. If a link has expired or is corrupted, the email
+                is
+                moved to the <strong>AI Exceptions</strong> folder. If in the future PCP determines that a separate
+                Expired
+                Links sub-folder is needed, this can be configured in the PCP Nexus Settings interface.
+            </div>
+        </div>
+
+        <h3>3.2 Phase 2 Workflow - Step by Step</h3>
+        <div class="section">
+            <div class="flowstep"><span class="step-num">Step 1.</span> Bot opens Microsoft Outlook and navigates to the
+                shared mailbox <strong>efiling@pcpusa.net</strong>.</div>
+            <div class="flowstep"><span class="step-num">Step 2.</span> Bot opens the input folder <strong>1 - Accepted
+                    Filing</strong>.</div>
+            <div class="flowstep"><span class="step-num">Step 3.</span> Bot scans the folder for unread emails. For each
+                email, the bot validates: (a) Sender email address equals
+                <strong>no-reply@efilingmail.tylertech.cloud</strong>, and (b) Subject line contains <strong>Filing
+                    Accepted</strong>. Emails that fail either check are moved to <strong>AI Exceptions</strong>.
+            </div>
+            <div class="flowstep"><span class="step-num">Step 4.</span> Bot reads the email body and extracts the
+                <strong>Envelope ID</strong> (a unique identifier assigned by Tyler Technologies to group related
+                documents). If no Envelope ID is found, the email is moved to <strong>AI Exceptions</strong>.
+            </div>
+            <div class="flowstep"><span class="step-num">Step 5.</span> Bot identifies the <strong>Lead Document
+                    prefix</strong> from the email body. The prefix determines how the document is handled:
+                <ul>
+                    <li><strong>Actionable prefixes</strong> (download and merge): AX40, AXPB, AXPE, AXPM, AXPL, AXPA
+                    </li>
+                    <li><strong>Ignored prefixes</strong> (discard - do not save or merge): AX69 (Misc Court Request),
+                        AX81
+                        (Misc Court Request), CL (Clerk Letter)</li>
+                </ul>
+                If the prefix is AX69, AX81, or CL, the document is discarded and not included in the merge.
+            </div>
+            <div class="flowstep"><span class="step-num">Step 6.</span> Once the Envelope ID is identified, the bot
+                <strong>searches the entire input folder</strong> for all other emails with the same Envelope ID. This
+                ensures that all related documents for the same filing are gathered before merging, even if they arrived
+                at
+                different times.
+            </div>
+            <div class="flowstep"><span class="step-num">Step 7.</span> Bot waits for a <strong>20-minute aggregation
+                    window</strong> to allow all related documents to arrive. After 20 minutes, the bot proceeds with
+                whatever documents have been collected for that Envelope ID.</div>
+            <div class="flowstep"><span class="step-num">Step 8.</span> Bot clicks the hyperlink in each email to
+                <strong>download the file-stamped PDF document</strong> from Tyler Technologies. If any download link
+                has
+                expired (links are active for 45 days) or is corrupted, that email is moved to <strong>AI
+                    Exceptions</strong>.
+            </div>
+            <div class="flowstep"><span class="step-num">Step 9.</span> Bot <strong>sorts the downloaded
+                    documents</strong>
+                for merging. The document with prefix <strong>AX40 (Petition)</strong> is always placed as <strong>Page
+                    1</strong> (the anchor document). All other actionable documents (AXPB, AXPE, AXPM, AXPL, AXPA) are
+                merged after AX40 in the order received. Documents with ignored prefixes (AX69, AX81, CL) are discarded
+                and
+                not included.</div>
+            <div class="flowstep"><span class="step-num">Step 10.</span> Bot <strong>merges all sorted documents into a
+                    single PDF file</strong>. The merged file is named using the format: the prefix
+                <strong>AX40</strong>
+                (unchanged) followed by the <strong>PCP Job Number</strong> (9 characters, starting with the letter A),
+                followed by <strong>.pdf</strong>. The PCP Job Number is extracted from the AX40 (Petition) document's
+                original file name by removing the first 4 characters (the AX40 prefix).
+                <table style="margin-top:8px">
+                    <tr>
+                        <th>Part</th>
+                        <th>Value</th>
+                        <th>Characters</th>
+                    </tr>
+                    <tr>
+                        <td>Prefix</td>
+                        <td><strong>AX40</strong></td>
+                        <td>4 characters</td>
+                    </tr>
+                    <tr>
+                        <td>PCP Job Number</td>
+                        <td><strong>A25C05955</strong></td>
+                        <td>9 characters (starts with A, alphanumeric)</td>
+                    </tr>
+                    <tr>
+                        <td>Extension</td>
+                        <td><strong>.pdf</strong></td>
+                        <td>4 characters</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Full File Name</strong></td>
+                        <td><strong>AX40A25C05955.pdf</strong></td>
+                        <td><strong>17 characters total</strong></td>
+                    </tr>
+                </table>
+                <em>The AX40 prefix does not change (unlike Phase 1 where AX03 becomes AX43). The merged output keeps
+                    the
+                    AX40 prefix as-is.</em>
+            </div>
+            <div class="flowstep"><span class="step-num">Step 11.</span> Bot <strong>saves the merged PDF file</strong>
+                to
+                the configured output folder (default: \\172.31.47.151\psaffidavits\AI_Inbound\File_Stamped_Petitions).
+            </div>
+            <div class="flowstep"><span class="step-num">Step 12.</span> Bot <strong>marks all related emails as
+                    read</strong> and <strong>moves all of them</strong> to the completed folder <strong>3 - AI
+                    Completed</strong>. All emails for the same Envelope ID move together.</div>
+            <div class="flowstep"><span class="step-num">Step 13.</span> Bot <strong>logs the processed filing</strong>
+                to
+                the SQLite database and the PCP Nexus Dashboard.</div>
+            <div class="flowstep"><span class="step-num">Step 14.</span> Bot checks for more unprocessed Envelope IDs.
+                If
+                more exist, return to Step 4. If none remain, the processing cycle is complete.</div>
+        </div>
+
+        <h3>3.3 Phase 2 Prefix Reference Table</h3>
+        <div class="section">
+            <table>
+                <tr>
+                    <th>Prefix</th>
+                    <th>Document Type</th>
+                    <th>Action</th>
+                    <th>Merge Role</th>
+                    <th style="width:80px">Confirm</th>
+                </tr>
+                <tr>
+                    <td>AX40</td>
+                    <td>Petition</td>
+                    <td>Actionable - Download, Merge, Save</td>
+                    <td>Page 1 (Anchor Document)</td>
+                    <td><span class="confirm-box"></span></td>
+                </tr>
+                <tr>
+                    <td>AXPB</td>
+                    <td>Business Records Affidavit</td>
+                    <td>Actionable - Download, Merge, Save</td>
+                    <td>Merge Part (placed after AX40)</td>
+                    <td><span class="confirm-box"></span></td>
+                </tr>
+                <tr>
+                    <td>AXPE</td>
+                    <td>Exhibits</td>
+                    <td>Actionable - Download, Merge, Save</td>
+                    <td>Merge Part (placed after AX40)</td>
+                    <td><span class="confirm-box"></span></td>
+                </tr>
+                <tr>
+                    <td>AXPM</td>
+                    <td>Military Affidavit</td>
+                    <td>Actionable - Download, Merge, Save</td>
+                    <td>Merge Part (placed after AX40)</td>
+                    <td><span class="confirm-box"></span></td>
+                </tr>
+                <tr>
+                    <td>AXPL</td>
+                    <td>Last Known Address</td>
+                    <td>Actionable - Download, Merge, Save</td>
+                    <td>Merge Part (placed after AX40)</td>
+                    <td><span class="confirm-box"></span></td>
+                </tr>
+                <tr>
+                    <td>AXPA</td>
+                    <td>Attachments (General)</td>
+                    <td>Actionable - Download, Merge, Save</td>
+                    <td>Merge Part (placed after AX40)</td>
+                    <td><span class="confirm-box"></span></td>
+                </tr>
+                <tr style="background:#fff3e0">
+                    <td>AX69</td>
+                    <td>Misc Court Request</td>
+                    <td>IGNORED - Do not save or merge</td>
+                    <td>N/A - Discarded</td>
+                    <td><span class="confirm-box"></span></td>
+                </tr>
+                <tr style="background:#fff3e0">
+                    <td>AX81</td>
+                    <td>Misc Court Request</td>
+                    <td>IGNORED - Do not save or merge</td>
+                    <td>N/A - Discarded</td>
+                    <td><span class="confirm-box"></span></td>
+                </tr>
+                <tr style="background:#fff3e0">
+                    <td>CL</td>
+                    <td>Clerk Letter</td>
+                    <td>IGNORED - Do not save or merge</td>
+                    <td>N/A - Discarded</td>
+                    <td><span class="confirm-box"></span></td>
+                </tr>
+            </table>
+        </div>
+
+        <h3>3.4 Phase 2 Key Rules</h3>
+        <div class="section">
+            <table>
+                <tr>
+                    <th>#</th>
+                    <th>Rule</th>
+                    <th>Description</th>
+                    <th style="width:80px">Confirm</th>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>Envelope ID Required</td>
+                    <td>Every email must contain an Envelope ID. If missing, the email is moved to AI Exceptions.</td>
+                    <td><span class="confirm-box"></span></td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>20-Minute Aggregation Window</td>
+                    <td>The bot waits 20 minutes after detecting a new Envelope ID to allow all related documents to
+                        arrive
+                        before merging.</td>
+                    <td><span class="confirm-box"></span></td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>AX40 Is Always Page 1</td>
+                    <td>The Petition document (AX40) is always placed as the first page of the merged PDF.</td>
+                    <td><span class="confirm-box"></span></td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>Discard Ignored Prefixes</td>
+                    <td>Documents with prefixes AX69, AX81, and CL are discarded and never included in the merged PDF.
+                    </td>
+                    <td><span class="confirm-box"></span></td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>All Parts Move Together</td>
+                    <td>When processing is complete, all emails for the same Envelope ID are moved to 3 - AI Completed
+                        together.</td>
+                    <td><span class="confirm-box"></span></td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td>Search Entire Folder</td>
+                    <td>Once an Envelope ID is identified, the bot searches the entire input folder for all emails with
+                        the
+                        same Envelope ID to ensure no documents are missed.</td>
+                    <td><span class="confirm-box"></span></td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- ============================================================ -->
+        <h2 class="page-break">4. Data Output - CSV Spreadsheet Specifications</h2>
+        <!-- ============================================================ -->
+
+        <div class="section">
+            <h3>4.1 CSV File - Phase 1 (eAffidavits)</h3>
+            <table>
+                <tr>
+                    <th>Setting</th>
+                    <th>Value</th>
+                    <th style="width:80px">Confirm</th>
+                </tr>
+                <tr>
+                    <td><strong>File Format</strong></td>
+                    <td>.csv (comma-separated values)</td>
+                    <td><span class="confirm-box"></span></td>
+                </tr>
+                <tr>
+                    <td><strong>File Name Format</strong></td>
+                    <td>eaffidavits_accepted_MMDDYYYY.csv<br><em>Example: eaffidavits_accepted_02072026.csv</em></td>
+                    <td><span class="confirm-box"></span></td>
+                </tr>
+                <tr>
+                    <td><strong>Folder Pathway</strong></td>
+                    <td>Configurable in PCP Nexus Settings interface<br><em>Default:
+                            \\172.31.47.151\psaffidavits\AI_Inbound</em></td>
+                    <td><span class="confirm-box"></span></td>
+                </tr>
+                <tr>
+                    <td><strong>Title Row (Row 1)</strong></td>
+                    <td>eaffidavits Accepted Spreadsheet</td>
+                    <td><span class="confirm-box"></span></td>
+                </tr>
+                <tr>
+                    <td><strong>Frequency</strong></td>
+                    <td>Once per day at <strong>10:00 PM</strong> (configurable in PCP Nexus Settings interface)</td>
+                    <td><span class="confirm-box"></span></td>
+                </tr>
+                <tr>
+                    <td><strong>Auto-Email</strong></td>
+                    <td>The CSV file will also be automatically emailed to the designated recipient via the same Outlook
+                        connection the bot already uses. The recipient email address, send time, and on/off toggle are
+                        all
+                        configurable in the PCP Nexus Settings interface.</td>
+                    <td><span class="confirm-box"></span></td>
+                </tr>
+            </table>
+
+            <h3>4.2 CSV Column Headers (Row 2) - In Exact Order, Left to Right</h3>
+            <table>
+                <tr>
+                    <th>Column</th>
+                    <th>Header Name</th>
+                    <th>Description</th>
+                    <th>Format</th>
+                    <th>Example</th>
+                </tr>
+                <tr>
+                    <td>Column A</td>
+                    <td><strong>Envelope_Num</strong></td>
+                    <td>The Envelope ID number from the Tyler Technologies filing notification email</td>
+                    <td>Numeric</td>
+                    <td>108795043</td>
+                </tr>
+                <tr>
+                    <td>Column B</td>
+                    <td><strong>Case_Num</strong></td>
+                    <td>The Case Number extracted from the body of the filing notification email</td>
+                    <td>Text (alphanumeric with dashes)</td>
+                    <td>JPC-25-13269-11</td>
+                </tr>
+                <tr>
+                    <td>Column C</td>
+                    <td><strong>Date_Submitted</strong></td>
+                    <td>The date the filing was originally submitted to the court</td>
+                    <td>MM/DD/YYYY</td>
+                    <td>12/05/2025</td>
+                </tr>
+                <tr>
+                    <td>Column D</td>
+                    <td><strong>Time_Submitted</strong></td>
+                    <td>The time the filing was originally submitted to the court</td>
+                    <td>H:MM AM/PM</td>
+                    <td>4:58 PM</td>
+                </tr>
+                <tr>
+                    <td>Column E</td>
+                    <td><strong>Date_Accepted</strong></td>
+                    <td>The date the filing was accepted by the court</td>
+                    <td>MM/DD/YYYY</td>
+                    <td>12/06/2025</td>
+                </tr>
+                <tr>
+                    <td>Column F</td>
+                    <td><strong>Time_Accepted</strong></td>
+                    <td>The time the filing was accepted by the court</td>
+                    <td>H:MM AM/PM</td>
+                    <td>11:12 AM</td>
+                </tr>
+                <tr>
+                    <td>Column G</td>
+                    <td><strong>Lead_Document</strong></td>
+                    <td>The full file name of the lead document as received in the email, including the .pdf extension
+                    </td>
+                    <td>Text</td>
+                    <td>AX02A25C05955.pdf</td>
+                </tr>
+                <tr>
+                    <td>Column H</td>
+                    <td><strong>PCP_Job_Num</strong></td>
+                    <td>The PCP Job Number extracted from the Lead Document file name by removing the 4-character prefix
+                        (AX##). The Job Number starts with the letter A and is always 9 characters long.</td>
+                    <td>Text (9 characters)</td>
+                    <td>A25C05955</td>
+                </tr>
+            </table>
+
+            <div class="important">
+                <strong>How PCP_Job_Num Is Extracted:</strong> The PCP Job Number is derived from the Lead_Document
+                column
+                by removing the first 4 characters (the AX## prefix). For example, if the Lead_Document is
+                <strong>AX02A25C05955.pdf</strong>, remove the prefix <strong>AX02</strong> to get
+                <strong>A25C05955</strong>. The Job Number always starts with the letter A and is always exactly 9
+                characters long (including the A).
+            </div>
+        </div>
+
+        <h3>4.3 Excel Spreadsheet - Additional Detail Report</h3>
+        <div class="section">
+            <div class="answer">
+                <strong>Answer to Brandy's Question - CSV and Excel Files:</strong><br>
+                Yes, the system will generate <strong>both</strong> a CSV file and an Excel spreadsheet. The CSV file
+                (described above) contains the 8 columns needed for FilePro import: Envelope_Num, Case_Num,
+                Date_Submitted,
+                Time_Submitted, Date_Accepted, Time_Accepted, Lead_Document, and PCP_Job_Num. The Excel spreadsheet
+                contains
+                additional detail columns such as accepted comments, download URLs, processing timestamps, and status
+                information. The Excel file is stored separately in the PCP Nexus application's local data folder on the
+                server and will <strong>not</strong> be placed in the same folder as the CSV file. This eliminates any
+                risk
+                of the Excel file interfering with the CSV file or your task scheduler.
+            </div>
+        </div>
+
+        <!-- ============================================================ -->
+        <h2 class="page-break">5. PCP Nexus Dashboard</h2>
+        <!-- ============================================================ -->
+
+        <div class="section">
+            <p>The PCP Nexus Dashboard provides real-time visibility into the processing status of both Phase 1
+                (eAffidavits) and Phase 2 (eFiling Petitions). The dashboard is accessible through the PCP Nexus
+                application
+                interface.</p>
+
+            <h3>5.1 Dashboard Metrics</h3>
+            <table>
+                <tr>
+                    <th>Metric</th>
+                    <th>Description</th>
+                    <th style="width:80px">Confirm</th>
+                </tr>
+                <tr>
+                    <td>Total Processed</td>
+                    <td>Total number of emails successfully processed across both phases</td>
+                    <td><span class="confirm-box"></span></td>
+                </tr>
+                <tr>
+                    <td>Success Rate</td>
+                    <td>Percentage of emails processed without errors (expired links are not counted as application
+                        failures)</td>
+                    <td><span class="confirm-box"></span></td>
+                </tr>
+                <tr>
+                    <td>Phase 1 Count</td>
+                    <td>Number of eAffidavit emails processed</td>
+                    <td><span class="confirm-box"></span></td>
+                </tr>
+                <tr>
+                    <td>Phase 2 Count</td>
+                    <td>Number of eFiling Petition emails processed</td>
+                    <td><span class="confirm-box"></span></td>
+                </tr>
+                <tr>
+                    <td>Exceptions</td>
+                    <td>Number of emails moved to AI Exceptions across both phases</td>
+                    <td><span class="confirm-box"></span></td>
+                </tr>
+            </table>
+
+            <h3>5.2 Exceptions View</h3>
+            <div class="answer">
+                <strong>Answer to Brandy's Question - Combined Exceptions:</strong><br>
+                The dashboard will show all exceptions from both the eaffidavits@pcpusa.net mailbox (Phase 1) and the
+                efiling@pcpusa.net mailbox (Phase 2) in a single Exceptions view. Each exception will be labeled with
+                its
+                <strong>Phase</strong> (Phase 1 or Phase 2) and its <strong>Exception Type</strong> (Expired Link,
+                Download
+                Error, Invalid Sender, Missing Envelope ID, etc.) so that you can filter and sort by either column. The
+                two
+                phases use separate AI Exceptions folders in Outlook, but the dashboard combines them into one view for
+                convenience.
+            </div>
+        </div>
+
+        <!-- ============================================================ -->
+        <h2 class="page-break">6. Database Architecture - SQLite and MySQL</h2>
+        <!-- ============================================================ -->
+
+        <div class="section">
+            <p>PCP Nexus uses a hybrid database strategy designed to minimize infrastructure requirements during initial
+                deployment while providing a clear path to enterprise-grade database hosting when PCP is ready.</p>
+
+            <h3>6.1 Initial Deployment - SQLite (Workstation Only)</h3>
+            <table>
+                <tr>
+                    <th>Setting</th>
+                    <th>Value</th>
+                </tr>
+                <tr>
+                    <td><strong>Database Engine</strong></td>
+                    <td>SQLite (file-based, no server required)</td>
+                </tr>
+                <tr>
+                    <td><strong>Location</strong></td>
+                    <td>Stored locally on the workstation running PCP Nexus</td>
+                </tr>
+                <tr>
+                    <td><strong>Purpose</strong></td>
+                    <td>Stores all processing logs, dashboard metrics, exception records, and CSV generation data</td>
+                </tr>
+                <tr>
+                    <td><strong>Accessibility</strong></td>
+                    <td>Workstation-only. The database file lives on the same machine running the bot. Other
+                        workstations or
+                        users cannot query this database directly.</td>
+                </tr>
+                <tr>
+                    <td><strong>Advantage</strong></td>
+                    <td>Zero additional infrastructure. No database server to install, configure, or maintain. PCP Nexus
+                        runs entirely self-contained on a single workstation.</td>
+                </tr>
+            </table>
+
+            <div class="important">
+                <strong>Why SQLite First:</strong> SQLite allows PCP Nexus to be deployed and tested immediately without
+                requiring PCP's IT team to provision a separate database server. This keeps the initial rollout simple
+                and
+                focused on validating the processing logic. Once the product is confirmed working in production, the
+                transition to MySQL can be planned at PCP's convenience.
+            </div>
+
+            <h3>6.2 Long-Term Target - MySQL (Network Accessible)</h3>
+            <p>PCP Nexus is architected as a <strong>hybrid SQLite/MySQL system</strong>. The application already
+                supports
+                both database engines. When PCP is ready to move to MySQL, the following will be needed:</p>
+
+            <table>
+                <tr>
+                    <th>#</th>
+                    <th>Requirement</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td><strong>MySQL Server Instance</strong></td>
+                    <td>A MySQL server (version 5.7 or higher) installed on a server accessible from the workstation
+                        running
+                        PCP Nexus. This can be a dedicated server, a virtual machine, or even the same workstation if
+                        desired.</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td><strong>Database Credentials</strong></td>
+                    <td>A MySQL username and password with permissions to create tables, insert records, and read data.
+                        PCP's IT team would provide these credentials.</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td><strong>Network Connectivity</strong></td>
+                    <td>The workstation running PCP Nexus must be able to reach the MySQL server over the network
+                        (typically
+                        TCP port 3306).</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td><strong>Configuration Update</strong></td>
+                    <td>Update the PCP Nexus Settings interface to enable MySQL as an additional database target. PCP
+                        Nexus
+                        supports running both SQLite and MySQL simultaneously - SQLite continues to serve as a local
+                        backup
+                        on the workstation while MySQL becomes the primary networked database. This is a settings change
+                        only - no code changes or redeployment required.</td>
+                </tr>
+            </table>
+
+            <h3>6.3 Data Migration - SQLite to MySQL</h3>
+            <div class="important">
+                <strong>All data stored in SQLite can be easily ported to MySQL.</strong> The database schema (table
+                structure, column names, data types) is identical between both engines. When PCP is ready to transition,
+                all
+                existing processing history, exception logs, and dashboard data accumulated during the SQLite phase will
+                be
+                migrated to MySQL automatically as part of the switchover. No data will be lost.
+            </div>
+
+            <h3>6.4 Benefits of MySQL (When Ready)</h3>
+            <ul>
+                <li><strong>Multi-user access</strong> - Multiple workstations or users can query the processing
+                    database
+                    simultaneously</li>
+                <li><strong>Centralized reporting</strong> - Dashboard data accessible from any machine on the network,
+                    not
+                    just the bot workstation</li>
+                <li><strong>Backup and recovery</strong> - Enterprise-grade backup tools and replication options</li>
+                <li><strong>Scalability</strong> - Handles larger data volumes as processing history grows over months
+                    and
+                    years</li>
+            </ul>
+        </div>
+
+        <!-- ============================================================ -->
+        <h2 class="page-break">7. Final Confirmation and Sign-Off</h2>
+        <!-- ============================================================ -->
+
+        <div class="section">
+            <h3>7.1 Summary of All Open Items - Resolved</h3>
+            <table>
+                <tr>
+                    <th>#</th>
+                    <th>Open Item</th>
+                    <th>Resolution</th>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>Will both a CSV file and an Excel spreadsheet be created?</td>
+                    <td><strong>Yes.</strong> The CSV file (8 columns: Envelope_Num, Case_Num, Date_Submitted,
+                        Time_Submitted, Date_Accepted, Time_Accepted, Lead_Document, PCP_Job_Num) is placed in the
+                        configured network folder for FilePro import. The Excel spreadsheet (additional columns
+                        including
+                        comments, download URLs, processing timestamps) is stored separately in the PCP Nexus
+                        application's
+                        local data folder and will not be placed in the same folder as the CSV.</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Do we need a separate Expired Links folder?</td>
+                    <td><strong>No.</strong> Expired links and all errors are moved to the AI Exceptions folder. If PCP
+                        later determines that a separate Expired Links sub-folder is needed, this can be configured in
+                        the
+                        PCP Nexus Settings interface.</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>When will the CSV file be placed?</td>
+                    <td><strong>Once per day at 10:00 PM</strong> (configurable in PCP Nexus Settings). The CSV will
+                        also be
+                        automatically emailed to the designated recipient.</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>Will the two AI Exceptions folders be combined in the dashboard?</td>
+                    <td><strong>Yes.</strong> The dashboard shows exceptions from both phases in a single view, with
+                        Phase
+                        and Exception Type columns for filtering.</td>
+                </tr>
+            </table>
+
+            <h3>7.2 Sign-Off</h3>
+            <p>By signing below, you confirm that the logic, naming conventions, folder paths, CSV specifications, and
+                processing rules described in this document are correct and approved for implementation.</p>
+            <br>
+            <table>
+                <tr>
+                    <td style="width:50%; padding:20px; border:none">
+                        <strong>PCP - Client Approval</strong><br><br>
+                        Name: ________________________________________<br><br>
+                        Title: ________________________________________<br><br>
+                        Date: ________________________________________<br><br>
+                        Signature: ________________________________________
+                    </td>
+                    <td style="width:50%; padding:20px; border:none">
+                        <strong>Developer - Chris</strong><br><br>
+                        Name: ________________________________________<br><br>
+                        Title: ________________________________________<br><br>
+                        Date: ________________________________________<br><br>
+                        Signature: ________________________________________
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <footer>
+            <p><strong>PCP Nexus - Logic Confirmation Document</strong></p>
+            <p>Version 3.0 | February 7, 2026</p>
+            <p style="font-size: 0.9rem; margin-top: 10px;">Prepared by PCP Development Team</p>
+        </footer>
+    </div>
+
+</body>
+
+</html>
